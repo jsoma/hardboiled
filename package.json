@@ -1,0 +1,35 @@
+{
+  "name": "hardboiled",
+  "version": "0.0.1",
+  "description": "A detective kit for investigating how web sites are built.",
+  "main": "lib/hardboiled.js",
+  "directories": {
+    "example": "example"
+  },
+  "dependencies": {
+    "URIjs": "~1.11.2",
+    "deferred": "~0.6.6",
+    "dir": "~0.1.2",
+    "highlight.js": "~7.5.0",
+    "node-dir": "~0.1.5",
+    "phantom": "~0.5.4",
+    "q": "~0.9.7",
+    "request": "~2.29.0",
+    "underscore": "~1.5.2",
+    "url": "~0.7.9",
+    "path": "~0.4.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build":        "coffee --bare --compile --output lib src/*.coffee",
+    "prepublish":   "coffee --bare --compile --output lib src/*.coffee"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jsoma/hardboiled"
+  },
+  "homepage": "https://github.com/jsoma/hardboiled",
+  "author": "Jonathan Soma <jonathan.soma@gmail.com> (http://jonathansoma.com/)",
+  "license": "MIT",
+  "readmeFilename": "README.md"
+}
