@@ -6,7 +6,7 @@
 
 ## Introduction
 
-You use it like this:
+Hardboiled goes a little something like this
 
 ```
 hardboiled = require('hardboiled')
@@ -15,31 +15,22 @@ hardboiled = require('hardboiled')
 hardboiled.scan("http://handsomeatlas.com", function(err, page) {
   console.log(page.url)
   // http://handsomeatlas.com
-  
-  page.matches.forEach(function(match) {
-    console.log(match)
-  }
-  // Match 1:
-  // { title: 'Google Analytics',
-  //   description: undefined,
-  //   url: 'http://www.google.com/analytics' }
-  // Match 2:
-  // { title: 'Twitter Bootstrap, Responsive CSS',
-  //   description: 'Prior to Bootstrap 3, you could enable responsive design by adding in an additional stylesheet.',
-  //   url: 'http://getbootstrap.com' }
-  // Match 3:
-  // { title: 'Bootstrap',
-  //   description: undefined,
-  //   url: 'http://getbootstrap.com' }
-  // Match 4:
-  // { title: 'jQuery',
-  //   description: undefined,
-  //   url: 'http://jquery.com' }
-  // Match 5:
-  // { title: 'Facebook Like button',
-  //   description: undefined,
-  //   url: undefined }
 
+  console.log(page.matches)
+  // [
+  //   { title: 'Google Analytics',
+  //     description: undefined,
+  //     url: 'http://www.google.com/analytics' },
+  //   { title: 'Twitter Bootstrap, Responsive CSS',
+  //     description: 'Prior to Bootstrap 3, you could enable responsive design by adding in an additional stylesheet.',
+  //     url: 'http://getbootstrap.com' },
+  //   { title: 'jQuery',
+  //     description: undefined,
+  //     url: 'http://jquery.com' },
+  //   { title: 'Facebook Like button',
+  //     description: undefined,
+  //     url: undefined }
+  //  ]
 })
 ```
 
@@ -47,24 +38,9 @@ hardboiled.scan("http://handsomeatlas.com", function(err, page) {
 
 **Hardboiled** is based on clue files, which are JSON-y files describing different technologies. They live (or will live) cluttered in various subdirectories in `/clues/`, although you can specify other directories if you'd like.
 
-Invoke Hardboiled like so:
-
-```
-Hardboiled.scan("http://www.google.com", function (err, page) {
-  // page is the Hardboiled.Page object, you'
-  console.log('Requested ' + page.url);
-  console.log('Processed ' + page.resources.length + ' attached resources.');
-  console.log('Technology matches:')
-  page.matches.forEach( function(match) {
-    console.log(match.title + ' ' + match.description);
-    console.log()
-  })
-})
-```
-
 We can only detect as many technologies as we have clues for, so please be a hero and contribute wicked-awesome clues.
 
-## Clue Format
+## Clues
 
 Hardboiled depends on user-submitted clues to decipher the web. Each clue file describes the technology that's being looked for and includes the tests needed to figure out if the page is using the technology.
 
@@ -85,21 +61,21 @@ Hardboiled depends on user-submitted clues to decipher the web. Each clue file d
 
 This one's for the iframe version of the [Facebook Like button](https://developers.facebook.com/docs/plugins/like-button/). Its only test looks for an iframe with a particular `src`. If you have multiple tests, it only takes passing one to validate the clue.
 
-#### Folders themselves
-
-I have no clue how to organize these.
-
 ### Technology Info
 
 The technology can be described using a `title`, `description`, `url`, and comma-delited `tags`. The technology is tested using an array of `tests`.
 
 Tags covering a category should be kept plural (e.g. **frameworks** not **framework**).
 
-### Test types
+### Test info
+
+Well those are pretty complicated, let's make a whole section about them.
+
+## Test types
 
 Tests each have a `type` and a `test`.
 
-Types of tests are `filename`, `selector`, `global`, `javascript` and `sudo`.
+Types of tests are `filename`, `selector`, `global`, `javascript`, `sudo`, and `meta`.
 
 #### filename
 
@@ -178,6 +154,22 @@ It loops through all of the keys attached to `window`, seeing if any will return
   }
 }
 ```
+
+#### meta
+
+`meta` looks for meta tags that match a given set of attributes. For example, if we wanted to see if a given blog was being served by WordPress:
+
+```
+{
+  type: 'meta',
+  test: {
+    name: 'generator',
+    content: /\AWordpress/
+  }
+}
+```
+
+This looks for a meta tag with the `name` attribute of `generator` and a `content` attribute that starts with `Wordpress`. You don't have to use regular expressions, but if you provide a string instead you need an exact match.
 
 ## Engines
 
