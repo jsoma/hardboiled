@@ -9,6 +9,7 @@ class Engines.Template
     constructor: (page, options) ->
         @page = page
         @wait = options.wait || 1000
+        @binary = options.binary || 'phantomjs' #path.join(__dirname, '/../phantom/phantomjs')
 
     openPage: () ->
         console.log("NOT IMPLEMENTED")
@@ -29,7 +30,7 @@ class Engines.PhantomJS extends Engines.Template
 
     openPage: () ->
         d = Q.defer()
-        phantom.create { binary: path.join(__dirname, '/../phantom/phantomjs') }, (ph) =>
+        phantom.create { binary: @binary }, (ph) =>
             @ph = ph
             ph.createPage (page) =>
                 @phPage = page

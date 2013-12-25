@@ -219,7 +219,7 @@ class Hardboiled.Scanner
         if !@clues
             return this.importClues () =>
                 this.scan(options, callback)
-        
+
         page = new Hardboiled.Page(options)
         
         page.openPage()
