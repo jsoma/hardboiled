@@ -75,7 +75,7 @@ Well those are pretty complicated, let's make a whole section about them.
 
 Tests each have a `type` and a `test`.
 
-Types of tests are `filename`, `selector`, `global`, `javascript`, `sudo`, and `meta`.
+Types of tests are [`filename`](#filename), [`selector`](#selector), [`global`](#global), [`javascript`](#sudo), [`sudo`](#sudo), and [`meta`](#meta).
 
 #### filename
 
@@ -97,7 +97,7 @@ Types of tests are `filename`, `selector`, `global`, `javascript`, `sudo`, and `
 ```js
 {
   type: 'selector', 
-  test: 'iframe[src^='http://embed.verite.co/timeline']'
+  test: 'iframe[src^="http://embed.verite.co/timeline"]'
 }
 ```
 
