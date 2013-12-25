@@ -8,7 +8,7 @@
 
 Hardboiled goes a little something like this
 
-```
+```js
 hardboiled = require('hardboiled')
 
 // When you scan, you get back a Hardboiled.Page object that can do all sorts of stuff. These are the basics you're looking for.
@@ -44,7 +44,7 @@ We can only detect as many technologies as we have clues for, so please be a her
 
 Hardboiled depends on user-submitted clues to decipher the web. Each clue file describes the technology that's being looked for and includes the tests needed to figure out if the page is using the technology.
 
-```
+```js
 {
     title: "Facebook Like button (iframe version)",
     description: "This is the ubiquitous button that is used to 'Like' a page. The iframe version has the ability to comment.",
@@ -81,7 +81,7 @@ Types of tests are `filename`, `selector`, `global`, `javascript`, `sudo`, and `
 
 `filename` looks for JavaScript or stylesheet files with a given name. It also does some normalization and stripping, so 'bootstrap-reponsive' will match 'bootstrap-responsive.min.css'.
 
-```
+```js
 {
   type: 'filename',
   test: 'bootstrap-responsive'
@@ -94,7 +94,7 @@ Types of tests are `filename`, `selector`, `global`, `javascript`, `sudo`, and `
 
 `selector` looks for an element on the page. This example looks for the embedded version of [TimelineJS](http://timeline.knightlab.com), an iframe beginning with `http://embed.verite.co/timeline`.
 
-```
+```js
 {
   type: 'selector', 
   test: 'iframe[src^='http://embed.verite.co/timeline']'
@@ -105,17 +105,18 @@ Types of tests are `filename`, `selector`, `global`, `javascript`, `sudo`, and `
 
 `global` checks if a variable/function/etc with that name exists off of the `window` object on the page. You could naively look for jQuery by trying to find '$', but this example looks for [TimelineJS](http://timeline.knightlab.com)/[StoryJS](https://github.com/NUKnightLab/StoryJS-Core).
 
-```
+```js
 {
   type: 'global',
   global: 'createStoryJS'
 }
+```
 
 #### javascript
 
 `javascript` executes a JavaScript function on the page and returns the result. If you want to stay simple it can just return `true` or `false`, but it can also send back additional information, e.g. `{ version: '3.4.0' }`, which will be saved by Hardboiled. A more intense example can be seen in a fancy way of discovering jQuery, along with its version number:
 
-```
+```js
 {
   type: 'javascript',
   test:  function() {
@@ -138,7 +139,7 @@ It loops through all of the keys attached to `window`, seeing if any will return
 
 `sudo` executes in Hardboiled space, not JavaScript page space. You have a function that's passed the `page` object, which you can use to loop through files, check contents, and basically tear apart every request looking for information. For example, objects stored on S3 return a header called `Server` with the value `AmazonS3`. Let's find them by going through every resource the page requested:
 
-```
+```js
 {
   type: 'sudo',
   test: function(page) {
@@ -159,7 +160,7 @@ It loops through all of the keys attached to `window`, seeing if any will return
 
 `meta` looks for meta tags that match a given set of attributes. For example, if we wanted to see if a given blog was being served by WordPress:
 
-```
+```js
 {
   type: 'meta',
   test: {
