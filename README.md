@@ -178,13 +178,7 @@ Hardboiled can use a few engines to interact with the web. Right now we've got [
 
 ### PhantomJS
 
-[PhantomJS](http://phantomjs.org) is a "headless WebKit" - basically, an invisible web browser that you can control using code. We use it to simulate a browser visiting a web site, that way we can test the functioning of the site in a practical way (ie running JavaScript) instead of manually looking at all of the scripts.
-
-#### Installing PhantomJS-resource_body
-
-Unfortunately, PhantomJS doesn't allow you to look inside of the remote files you're downloading outside of the page itself. We want to look at the CSS, JS, images, and whatever else comes our way, so we need to install a special fork of PhantomJS! I'm sure there are plenty, but I went ahead and picked [this one](https://github.com/dparshin/phantomjs/tree/resource_body).
-
-I've included a copy of the OSX binary under `lib` (hey, it works for me), but if that doesn't work you'll need to copy and [build it yourself](http://phantomjs.org/build.html). If you place phantom anywhere other than at /phantom/phantomjs you'll also need to pass an option about where to find PhantomJS.
+[PhantomJS](http://phantomjs.org) is a "headless WebKit" - basically, an invisible web browser that you can control using code. We use it to simulate a browser visiting a web site, that way we can test the functioning of the site in a practical way (ie running JavaScript) instead of manually looking at all of the scripts. If you use [this fork](https://github.com/dparshin/phantomjs/tree/resource_body) you can actually look at the contents of the stylesheets and javascript.
 
 ### jsdom
 

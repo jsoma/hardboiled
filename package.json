@@ -17,12 +17,13 @@
     "request": "~2.29.0",
     "underscore": "~1.5.2",
     "url": "~0.7.9",
-    "path": "~0.4.9"
+    "path": "~0.4.9",
+    "jsdom": "~0.8.10"
   },
   "devDependencies": {},
   "scripts": {
-    "build":        "coffee --bare --compile --output lib src/*.coffee",
-    "prepublish":   "coffee --bare --compile --output lib src/*.coffee"
+    "build": "coffee --bare --compile --output lib src/*.coffee",
+    "prepublish": "coffee --bare --compile --output lib src/*.coffee"
   },
   "repository": {
     "type": "git",
