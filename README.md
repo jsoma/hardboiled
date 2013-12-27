@@ -112,6 +112,24 @@ Types of tests are [`filename`](#filename), [`selector`](#selector), [`global`](
 }
 ```
 
+#### header
+
+`header` attempts to find headers with the given name. Looks in fetched content, too, for the time being, although that should probably be a setting. If you don't care about the value of the header you can just pass a string, otherwise pass a hash.
+
+```js
+{
+  type: 'header',
+  global: { 'Server': 'AmazonS3' }
+}
+```
+
+```js
+{
+  type: 'header',
+  global: 'X-Varnish'
+}
+```
+
 #### javascript
 
 `javascript` executes a JavaScript function on the page and returns the result. If you want to stay simple it can just return `true` or `false`, but it can also send back additional information, e.g. `{ version: '3.4.0' }`, which will be saved by Hardboiled. A more intense example can be seen in a fancy way of discovering jQuery, along with its version number:
@@ -205,8 +223,9 @@ Hexes, curses and swear words can be directed to me at [https://twitter.com/dang
 * Understand that blahblah-8f6ca9b17ae3eba1e30276eef0a16282cb651c78.css is really blahblah.css
 * Pull a list of libraries supported so you don't have to browse through `/clues/`
 * Parse/display version/etc info
+* log all of the stuff that doesn't yet mean anything (js filenames, meta generator tags, etc)
+* in fact, make the whole thing a page analysis instead of just page info. Hardboiled.Analysis!
 * Figure out callback stuff
-* Break out external engines for jsdom/phantom/etc
 * Don't automatically download huge files (or maybe per-page max?)
 * Have a limit of the number of resources downloaded
 * Clear up offline version
@@ -214,3 +233,4 @@ Hexes, curses and swear words can be directed to me at [https://twitter.com/dang
 * Flesh out jsdom limitations
 * Testing
 * Implement eval for jsdom for the sake of selectors/etc (and fix up jsdom in general)
+* Headers in the same way as meta, sudo is absurd

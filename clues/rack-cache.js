@@ -1,9 +1,9 @@
 {
-    title: 'S3',
+    title: 'RackCache',
     tests: [
       {
         type: 'header',
-        test: { 'Server': 'AmazonS3' }
+        test: 'X-Rack-Cache'
       }
     ]
 }

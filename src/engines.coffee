@@ -41,14 +41,25 @@ class Engines.PhantomJS extends Engines.Template
                 @phPage.open @page.url, (status) =>
                     # Let's wait for a bit after opening the page to try to do anything
                     setTimeout () =>
-                        this.pullMeta().then (meta) =>
-                            items = JSON.parse(meta)
-                            for item in items
-                                @page.addMeta(item)
-                            d.resolve()
+                        # ....clean this up!
+                        this
+                            .pullMeta()
+                            .then (meta) =>
+                                items = JSON.parse(meta)
+                                for item in items
+                                    @page.addMeta(item)
+                                this.pullBody()
+                                .then (body) =>
+                                    @page.body = body
+                                    d.resolve()
                     , @wait
         d.promise
 
+    pullBody: () ->
+        console.log('pulling body')
+        this.evaluate ->
+            document.body.innerHTML
+        
     pullMeta: () ->
         this.evaluate ->
             meta_tags = document.getElementsByTagName('meta')
@@ -91,6 +102,7 @@ class Engines.jsdom extends Engines.Template
                     if !!script.src
                         @page.addResource url: script.src
 
+                @page.setBody window.document.body.innerHTML
                 # Find remote stylesheets
                 links = window.document.getElementsByTagName('link')
                 for link in links

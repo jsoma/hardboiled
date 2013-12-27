@@ -29,7 +29,8 @@ class Hardboiled.Clue
         url: @data.url
         
     runTests: (page) =>
-       Q.all @tests.map (test) => 
+        Q.all @tests.map (test) => 
+            console.log("test_" + test.type)
             this['test_' + test.type].call(this, page, test.test)
 
     processResult: (type, result) =>
@@ -51,6 +52,18 @@ class Hardboiled.Clue
         this.runTest data, (d) =>
             result = page.hasMeta(data)
             response = this.processResult 'meta', result
+            d.resolve(response)
+
+    test_header: (page, data) =>
+        this.runTest data, (d) =>
+            result = page.hasHeader(data)
+            response = this.processResult 'header', result
+            d.resolve(response)
+
+    test_text: (page, text) =>
+        this.runTest text, (d) =>
+            result = page.hasText(text)
+            response = this.processResult 'text', result
             d.resolve(response)
 
     test_domain: (page, regex) =>
@@ -175,20 +188,47 @@ class Hardboiled.Page
         resource = new Hardboiled.Resource(data)
         @resources.push(resource)
 
+    hasText: (text) ->
+        !!@body.indexOf(text)
+
     addMeta: (data) ->
         @meta.push(data)
+
+    hasHeader: (data) ->
+        if typeof data != 'string'
+            key = Object.keys(data)[0]
+            value = data[key]
+            for resource in @resources
+                for header in resource.headers
+                    if header.name == key && header.value == value
+                        return header
+        else # it's a string
+            key = data
+            for resource in @resources
+                for header in resource.headers
+                    if header.name == key
+                        return header
 
     hasMeta: (data) ->
         keys = Object.keys(data)
         @meta.filter (tag) =>
             # if Object.keys(tag).length != keys
             #     return false
+            extras = []
             for key in keys
-                if data[key] instanceof RegExp
-                    return false if !data[key].test(tag[key])
+                if !tag[key]
+                    return false 
+                # Duck typing RegExp, instanceof won't work
+                if !!data[key].exec
+                    matches = tag[key].match(data[key])
+                    if matches == null
+                        return false 
+                    # If there's anything captured by the regex, return it
+                    if matches.length > 1
+                        extras.push matches.slice(1)
                 else
                     return false if tag[key] != data[key]
-            true
+            extras.length > 0 ? extras : true
 
     evaluate_with_args: (fn, arg1) ->
         @engine.evaluate_with_args(fn, arg1)
