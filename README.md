@@ -215,7 +215,7 @@ Hardboiled can use a few engines to interact with the web. Right now we've got [
 
 ### jsdom
 
-jsdom is a much much much lighter-weight PhantomJS (although that's a bit of a stretch). Read more at [https://github.com/tmpvar/jsdom](https://github.com/tmpvar/jsdom).
+jsdom is a much much much lighter-weight PhantomJS (although that might be a bit of a stretch). Read more at [https://github.com/tmpvar/jsdom](https://github.com/tmpvar/jsdom).
 
 #### Limitations
 
