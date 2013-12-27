@@ -1,6 +1,6 @@
 var hardboiled = require('../lib/hardboiled');
 
-hardboiled.scan("http://angularjs.org/", function(err, page) {
+hardboiled.scan("http://projects.propublica.org/docdollars/", function(err, page) {
   console.log("URL is " + page.url);
   // URL is http://handsomeatlas.com
   

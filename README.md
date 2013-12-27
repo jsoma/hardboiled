@@ -75,7 +75,7 @@ Well those are pretty complicated, let's make a whole section about them.
 
 Tests each have a `type` and a `test`.
 
-Types of tests are [`filename`](#filename), [`selector`](#selector), [`global`](#global), [`javascript`](#sudo), [`sudo`](#sudo), and [`meta`](#meta).
+Types of tests are [`filename`](#filename), [`selector`](#selector), [`global`](#global), [`javascript`](#sudo), [`sudo`](#sudo), ['header'](#header), ['jquery'](#jquery) and [`meta`](#meta).
 
 #### filename
 
@@ -129,6 +129,19 @@ Types of tests are [`filename`](#filename), [`selector`](#selector), [`global`](
   global: 'X-Varnish'
 }
 ```
+
+#### jquery
+
+`jquery` tests if you can execute a given method on a jQuery node. It's an easy way to test for jQuery plugins! For example, if we want to see if someone is using the tiling plugin [Isotope](http://isotope.metafizzy.co), we can do the following:
+
+```js
+{
+  type: 'jquery',
+  test: 'isotope'
+}
+```
+
+It will look for something similar to `jQuery("<div></div>").isotope`, even if jQuery is `$` or `jQuery` or whatever else. There can probably be a conflict if there are multiple instances of jQuery living on the same page, but hey, that's probably causing problems on the site anyway.
 
 #### javascript
 

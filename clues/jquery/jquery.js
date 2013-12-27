@@ -1,6 +1,7 @@
 {
     title: 'jQuery',
     url: 'http://jquery.com',
+    tags: 'jquery',
     tests: [
       {
         type: 'javascript',

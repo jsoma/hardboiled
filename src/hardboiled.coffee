@@ -71,6 +71,24 @@ class Hardboiled.Clue
             response = this.processResult 'domain', !!results
             d.resolve(response)
 
+    test_jquery: (page, method) =>
+        this.runTest method, (d) =>
+            promise = page.evaluate_with_args (method) =>
+                # Have to find jQuery first before you can test a method
+                keys = Object.keys(window)
+
+                for key in keys
+                    if(!!window[key] && !!window[key].fn && !!window[key].fn.jquery)
+                        foundjQuery = window[key]
+
+                return if(!foundjQuery)
+                !!foundjQuery("<div></div>")[method];
+            , method
+            
+            Q(promise).then (value) =>
+                response = this.processResult 'jquery', !!value
+                d.resolve(response)
+
     test_filename: (page, filename) =>
         this.runTest filename, (d) =>
             results = page.resources
