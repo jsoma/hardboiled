@@ -2,7 +2,7 @@
 
 **Hardboiled** is a detective kit for investigating **how web sites are built.** It runs JavaScript, scrapes stylesheets, and isn't afraid to **break a few bones** to get the job done. It tracks down frameworks, jQuery plugins, grid systems, and anything else your dark heart desires.
 
-*Hardboiled is a work-in-progress like **crazy**. I've never written node anything before, and it's really just up so I can hassle folks for feedback. The ever-so-convenient web app is on its way.*
+*Hardboiled is a work-in-progress like crazy. I've never written node anything before, and it's really just up so I can hassle folks for feedback. The ever-so-convenient web app is on its way.*
 
 ## Introduction
 
@@ -212,7 +212,6 @@ Hexes, curses and swear words can be directed to me at [https://twitter.com/dang
 
 ## TODO
 
-* Split engines/etc into multiple files
 * Deal with errors
   * Clue-parsing
   * Site-pulling
@@ -228,9 +227,10 @@ Hexes, curses and swear words can be directed to me at [https://twitter.com/dang
 * Figure out callback stuff
 * Don't automatically download huge files (or maybe per-page max?)
 * Have a limit of the number of resources downloaded
-* Clear up offline version
+* Make header search only work for initial page
+* Make header keep data on what triggered it
+* Tests that map X site to Y tech, so you can run one at a time
 * Organization of clues
-* Flesh out jsdom limitations
+* Flesh out jsdom limitations (or fill out jsdom engine abilities)
 * Testing
 * Implement eval for jsdom for the sake of selectors/etc (and fix up jsdom in general)
-* Headers in the same way as meta, sudo is absurd
