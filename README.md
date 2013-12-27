@@ -75,7 +75,7 @@ Well those are pretty complicated, let's make a whole section about them.
 
 Tests each have a `type` and a `test`.
 
-Types of tests are [`filename`](#filename), [`selector`](#selector), [`global`](#global), [`javascript`](#sudo), [`sudo`](#sudo), ['header'](#header), ['jquery'](#jquery) and [`meta`](#meta).
+Types of tests are [`filename`](#filename), [`selector`](#selector), [`global`](#global), [`javascript`](#sudo), [`sudo`](#sudo), [`header`](#header), [`jquery`](#jquery) and [`meta`](#meta).
 
 #### filename
 
@@ -202,6 +202,8 @@ It loops through all of the keys attached to `window`, seeing if any will return
 ```
 
 This looks for a meta tag with the `name` attribute of `generator` and a `content` attribute that starts with `Wordpress`. You don't have to use regular expressions, but if you provide a string instead you need an exact match.
+
+[Back to test types](#test-types)
 
 ## Engines
 
