@@ -6,7 +6,7 @@
         type: 'meta',
         test: {
           name: 'generator',
-          content: /WordPress ?(.*)/i
+          content: /^WordPress ?(.*)/i
         }
       }
     ]

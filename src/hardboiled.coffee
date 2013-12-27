@@ -30,7 +30,6 @@ class Hardboiled.Clue
         
     runTests: (page) =>
         Q.all @tests.map (test) => 
-            console.log("test_" + test.type)
             this['test_' + test.type].call(this, page, test.test)
 
     processResult: (type, result) =>
@@ -200,7 +199,12 @@ class Hardboiled.Page
             value = data[key]
             for resource in @resources
                 for header in resource.headers
-                    if header.name == key && header.value == value
+                    if !!value.exec
+                        console.log(value)
+                        value_match = header.value.match(value)
+                    else
+                        value_match = header.value == value
+                    if header.name == key && value_match
                         return header
         else # it's a string
             key = data
