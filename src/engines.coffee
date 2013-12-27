@@ -14,9 +14,6 @@ class Engines.Template
     openPage: () ->
         console.log("NOT IMPLEMENTED")
 
-    hasMeta: () ->
-        console.log("NOT IMPLEMENTED")
-
     closePage: () ->
         console.log("NOT IMPLEMENTED")
 

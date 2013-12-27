@@ -227,6 +227,7 @@ Hexes, curses and swear words can be directed to me at [https://twitter.com/dang
 * Figure out callback stuff
 * Don't automatically download huge files (or maybe per-page max?)
 * Have a limit of the number of resources downloaded
+* Allow tests to be ANY or ALL
 * Make header search only work for initial page
 * Make header keep data on what triggered it
 * Tests that map X site to Y tech, so you can run one at a time

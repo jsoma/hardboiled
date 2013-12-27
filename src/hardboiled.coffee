@@ -188,30 +188,35 @@ class Hardboiled.Page
         @resources.push(resource)
 
     hasText: (text) ->
-        !!@body.indexOf(text)
+        @body.indexOf(text) != -1
 
     addMeta: (data) ->
         @meta.push(data)
 
     hasHeader: (data) ->
+        # TODO need to aggregate all of the files this is true for
+        results = []
         if typeof data != 'string'
             key = Object.keys(data)[0]
             value = data[key]
             for resource in @resources
                 for header in resource.headers
                     if !!value.exec
-                        console.log(value)
                         value_match = header.value.match(value)
                     else
                         value_match = header.value == value
                     if header.name == key && value_match
-                        return header
+                        results.push [ resource.url, header ]
         else # it's a string
             key = data
             for resource in @resources
                 for header in resource.headers
                     if header.name == key
-                        return header
+                        results.push [ resource.url, header ]
+        if results.length > 0
+            results
+        else
+            false
 
     hasMeta: (data) ->
         keys = Object.keys(data)
@@ -254,6 +259,7 @@ class Hardboiled.Scanner
         @clues = []
         dir.files path.resolve(__dirname, @path), (err, files) =>
             for file in files
+                continue unless /\.js$/.test file
                 clue = new Hardboiled.Clue(path: file)
                 @clues.push clue
             callback()
