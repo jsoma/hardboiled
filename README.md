@@ -36,9 +36,19 @@ hardboiled.scan("http://handsomeatlas.com", function(err, page) {
 
 ## How it works
 
-**Hardboiled** is based on clue files, which are JSON-y files describing different technologies. They live (or will live) cluttered in various subdirectories in `/clues/`, although you can specify other directories if you'd like.
+**Hardboiled** is based on two things, a **headless browser** and **clue files**.
+
+A **headless browser** like [PhantomJS](http://phantomjs.org).
+
+**Clue files** are JSON-y files describing different technologies. They live (or will live) cluttered in various subdirectories in `/clues/`, although you can specify other directories if you'd like.
 
 We can only detect as many technologies as we have clues for, so please be a hero and contribute wicked-awesome clues.
+
+## Installation
+
+You'll need to download PhantomJS from [http://phantomjs.org/download.html](http://phantomjs.org/download.html), and stick it somewhere in your path.
+
+Hardboiled is also not yet in npm, so you'll want to snag it via `npm install ssh+https://github.com/jsoma/hardboiled`
 
 ## Clues
 
@@ -79,8 +89,6 @@ Types of tests are [`filename`](#filename), [`selector`](#selector), [`global`](
 
 #### filename
 
-`filename` looks for JavaScript or stylesheet files with a given name. It also does some normalization and stripping, so 'bootstrap-reponsive' will match 'bootstrap-responsive.min.css'.
-
 ```js
 {
   type: 'filename',
@@ -88,11 +96,11 @@ Types of tests are [`filename`](#filename), [`selector`](#selector), [`global`](
 }
 ```
 
+`filename` looks for JavaScript or stylesheet files with a given name. It also does some normalization and stripping, so 'bootstrap-reponsive' will match 'bootstrap-responsive.min.css'.
+
 `filename` is the easiest (and least effective) type of test, but it's a pretty good start. Send a pull and later on maybe someone will upgrade it to something a bit fancier? Check out the jQuery example under `javascript` to see what kind of improvements that could be made beyond looking for a file named `jquery.js`.
 
 #### selector
-
-`selector` looks for an element on the page. This example looks for the embedded version of [TimelineJS](http://timeline.knightlab.com), an iframe beginning with `http://embed.verite.co/timeline`.
 
 ```js
 {
@@ -101,38 +109,36 @@ Types of tests are [`filename`](#filename), [`selector`](#selector), [`global`](
 }
 ```
 
-#### global
+`selector` looks for an element on the page. This example looks for the embedded version of [TimelineJS](http://timeline.knightlab.com), an iframe beginning with `http://embed.verite.co/timeline`.
 
-`global` checks if a variable/function/etc with that name exists off of the `window` object on the page. You could naively look for jQuery by trying to find '$', but this example looks for [TimelineJS](http://timeline.knightlab.com)/[StoryJS](https://github.com/NUKnightLab/StoryJS-Core).
+#### global
 
 ```js
 {
   type: 'global',
-  global: 'createStoryJS'
+  test: 'createStoryJS'
 }
 ```
+
+`global` checks if a variable/function/etc with that name exists off of the `window` object on the page. You could naively look for jQuery by trying to find '$', but this example looks for [TimelineJS](http://timeline.knightlab.com)/[StoryJS](https://github.com/NUKnightLab/StoryJS-Core).
 
 #### header
 
+```js
+{
+  type: 'header',
+  test: { 'Server': 'AmazonS3' }
+}
+
+{
+  type: 'header',
+  test: 'X-Varnish'
+}
+```
+
 `header` attempts to find headers with the given name. Looks in fetched content, too, for the time being, although that should probably be a setting. If you don't care about the value of the header you can just pass a string, otherwise pass a hash.
 
-```js
-{
-  type: 'header',
-  global: { 'Server': 'AmazonS3' }
-}
-```
-
-```js
-{
-  type: 'header',
-  global: 'X-Varnish'
-}
-```
-
 #### jquery
-
-`jquery` tests if you can execute a given method on a jQuery node. It's an easy way to test for jQuery plugins! For example, if we want to see if someone is using the tiling plugin [Isotope](http://isotope.metafizzy.co), we can do the following:
 
 ```js
 {
@@ -141,11 +147,11 @@ Types of tests are [`filename`](#filename), [`selector`](#selector), [`global`](
 }
 ```
 
-It will look for something similar to `jQuery("<div></div>").isotope`, even if jQuery is `$` or `jQuery` or whatever else. There can probably be a conflict if there are multiple instances of jQuery living on the same page, but hey, that's probably causing problems on the site anyway.
+`jquery` tests if you can execute a given method on a jQuery node. It's an easy way to test for jQuery plugins!
+
+This test looks for the tiling plugin [Isotope](http://isotope.metafizzy.co) by attempting (roughly) `$("<div></div>").isotope`. There can probably be a conflict if there are multiple instances of jQuery living on the same page, but hey, that's probably causing problems on the site anyway.
 
 #### javascript
-
-`javascript` executes a JavaScript function on the page and returns the result. If you want to stay simple it can just return `true` or `false`, but it can also send back additional information, e.g. `{ version: '3.4.0' }`, which will be saved by Hardboiled. A more intense example can be seen in a fancy way of discovering jQuery, along with its version number:
 
 ```js
 {
@@ -164,11 +170,11 @@ It will look for something similar to `jQuery("<div></div>").isotope`, even if j
 }
 ```
 
-It loops through all of the keys attached to `window`, seeing if any will return `.fn.jquery`, which is the jQuery version number.
+`javascript` executes a JavaScript function on the page and returns the result. If you want to stay simple it can just return `true` or `false`, but it can also send back additional information, e.g. `{ version: '3.4.0' }`, which will be saved by Hardboiled.
+
+This example is a fancy way of discovering jQuery, along with its version number. It loops through all of the keys attached to `window`, seeing if any will return `.fn.jquery`, which is the jQuery version number.
 
 #### sudo
-
-`sudo` executes in Hardboiled space, not JavaScript page space. You have a function that's passed the `page` object, which you can use to loop through files, check contents, and basically tear apart every request looking for information. For example, objects stored on S3 return a header called `Server` with the value `AmazonS3`. Let's find them by going through every resource the page requested:
 
 ```js
 {
@@ -187,19 +193,23 @@ It loops through all of the keys attached to `window`, seeing if any will return
 }
 ```
 
-#### meta
+`sudo` executes in Hardboiled space, not JavaScript page space. You have a function that's passed the `page` object, which you can use to loop through files, check contents, and basically tear apart every request looking for information.
 
-`meta` looks for meta tags that match a given set of attributes. For example, if we wanted to see if a given blog was being served by WordPress:
+For example, objects stored on S3 return a header called `Server` with the value `AmazonS3`. We found them above by going through every resource the page requested (although now we'd just use `header`).
+
+#### meta
 
 ```js
 {
   type: 'meta',
   test: {
     name: 'generator',
-    content: /\AWordpress/
+    test: /\^Wordpress/
   }
 }
 ```
+
+`meta` looks for meta tags that match a given set of attributes. For example, if we wanted to see if a given blog was being served by WordPress.
 
 This looks for a meta tag with the `name` attribute of `generator` and a `content` attribute that starts with `Wordpress`. You don't have to use regular expressions, but if you provide a string instead you need an exact match.
 
@@ -207,7 +217,7 @@ This looks for a meta tag with the `name` attribute of `generator` and a `conten
 
 ## Engines
 
-Hardboiled can use a few engines to interact with the web. Right now we've got [PhantomJS](http://phantomjs.org) and [jsdom](https://github.com/tmpvar/jsdom). Who wants to write one for Zombie?
+Hardboiled can use a few engines to interact with the web. Right now we've got [PhantomJS](http://phantomjs.org) and a partial implementation for [jsdom](https://github.com/tmpvar/jsdom). Who wants to write one for [Zombie](http://zombie.labnotes.org)?
 
 ### PhantomJS
 
