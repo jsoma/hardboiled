@@ -112,7 +112,13 @@ class Hardboiled.Clue
     test_global: (page, global) =>
         this.runTest global, (d) =>
             promise = page.evaluate_with_args (variable) ->
-                return window[variable] != undefined && window[variable] != null
+                if(variable.indexOf('.') != -1)
+                    variable.split('.').reduce (prev, curr) ->
+                       return if !prev
+                       return prev[curr]
+                    , window
+                else
+                    return !!window[variable]
             , global
             Q(promise).then (result) =>
                 response = this.processResult 'global', !!result
