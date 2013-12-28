@@ -24,9 +24,11 @@ scanner.importClues( function(err) {
     if(clue.description)
       lines.push(clue.description);
 
+    file_path = path.relative(CLUEROOT, clue.path)
+
     lines.push("Tagged with: " + (!clue.tags ? "none" : clue.tags) +
       " | Test types: " + clue.tests.map( function(test) { return test.type } ).join(", ") +
-      " | " + "Found at: " + path.relative(CLUEROOT, clue.path));
+      " | " + "Found at: [" + file_path + "](" + "https://github.com/jsoma/hardboiled/blob/master/clues/" + file_path + ")");
   });
   console.log(lines.join("\n\n"));
 });

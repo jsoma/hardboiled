@@ -40,7 +40,7 @@ hardboiled.scan("http://handsomeatlas.com", function(err, page) {
 
 A **headless browser** like [PhantomJS](http://phantomjs.org).
 
-**Clue files** are JSON-y files describing different technologies. They live (or will live) cluttered in various subdirectories in `/clues/`, although you can specify other directories if you'd like.
+**Clue files** are JSON-y files describing different technologies. They live (or will live) cluttered in various subdirectories in `/clues/`, although you can specify other directories if you'd like. You can see the clues we've amassed so far in  [clues.md](https://github.com/jsoma/hardboiled/blob/master/clues.md).
 
 We can only detect as many technologies as we have clues for, so please be a hero and contribute wicked-awesome clues.
 
