@@ -52,6 +52,8 @@ Hardboiled is also not yet in npm, so you'll want to snag it via `npm install ss
 
 ## Clues
 
+*Generate clues in a friendly way over at [http://jsoma.github.io/hardboiled/generator.html](http://jsoma.github.io/hardboiled/generator.html)*
+
 Hardboiled depends on user-submitted clues to decipher the web. Each clue file describes the technology that's being looked for and includes the tests needed to figure out if the page is using the technology.
 
 ```js
