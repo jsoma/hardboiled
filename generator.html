@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+    <style>
+    body {
+      color: #333;
+    }
+    h1,h2,h3,h4,h5,h6 {
+      font-weight: 300;
+    }
+    p {
+      font-size: 85%;
+    }
+    h3 {
+      border-bottom: solid #333 1px;
+    }
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2em;
+    }
+    #result {
+      width: 100%;
+      height: 19em;
+    }
+    textarea {
+      height: 7em;
+    }
+    a {
+      color: #d33;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="pure-g-r">
+      <div class="pure-u-1">
+        <div class="content">
+          <h2>Hardboiled Clue JSON Generator</h2>
+          <p>Because I don't like having to type all this out, and maybe you don't either. <a href="https://github.com/jsoma/hardboiled#clues">Read all about clues</a></p>
+          <form class="pure-form pure-form-aligned">
+          <div class="pure-g">
+            <div class="pure-u-1-2">
+              <h3>People speak</h3>
+                  <fieldset>
+                      <div class="pure-control-group">
+                        <label for="title">Title</label>
+                        <input id="title" type="text" name="title" placeholder="Title" class="pure-input-1-2">
+                      </div>
+
+                      <div class="pure-control-group">
+                        <label for="url">URL</label>
+                        <input id="url" type="text" name="url" placeholder="Homepage" class="pure-input-1-2">
+                      </div>
+                  
+                      <div class="pure-control-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description" placeholder="Description" class="pure-input-1-2"></textarea>
+                      </div>
+
+                      <div class="pure-control-group">
+                        <label for="tags">Tags</label>
+                        <input id="tags" type="text" placeholder="Tags" class="pure-input-1-2">
+                      </div>
+
+                      <div class="pure-control-group">
+                        <label for="type">Test type</label>
+                        <select id="type" class="pure-input-1-2">
+                            <option value="filename">Filename match</option>
+                            <option value="sudo">sudo</option>
+                            <option value="meta">Meta tag matches</option>
+                            <option value="javascript">Javascript function</option>
+                            <option value="jquery">jQuery function support</option>
+                            <option value="header">Request contains headers</option>
+                            <option value="text">Page contains text</option>
+                        </select>
+                      </div>
+                  
+                      <div class="pure-control-group">
+                        <label for="test">Test content</label>
+                        <textarea id="test" placeholder="test" class="pure-input-1-2"></textarea>
+                      </div>
+
+                      <div class="pure-control-group">
+                        <label for="submit">&nbsp;</label>
+                        <button type="submit" class="pure-button pure-button-small pure-button-primary">Generate</button>
+                      </div>
+
+
+                  </fieldset>
+            </div>
+            <div class="pure-u-1-2">
+              <h3>Robot talk</h3>
+              <textarea id="result"></textarea>
+              <p>You'll need to remove quotation marks for functions and regular expressions etc.</p>
+            </div>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+    <script type="text/javascript">
+    $(document).ready( function() {
+      function update(e) {
+        e.preventDefault();
+        var data = $("form").serializeArray();
+        data = _.filter( data, function(obj) {
+          return !!obj.value;
+        })
+        var values = _.object(_.pluck(data, 'name'), _.pluck(data, 'value'));
+        if($("#type").val() && $("#test").val())
+          values.tests = [ { type: $("#type").val(), test: $("#test").val() } ];
+        
+        $("textarea#result").val(JSON.stringify(values, null, '\t'));
+      }
+      $("form").submit(update);
+      $("form textarea, form select, form input").change(update)
+    })
+    </script>
+  </body>
+</html>
