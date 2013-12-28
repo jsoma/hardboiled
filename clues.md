@@ -2,362 +2,130 @@
 
 These are all of the technologies that Hardboiled can detect. This list is automatically generated from the `clues` directory.
 
+### Amazon CloudFront [http://aws.amazon.com/cloudfront/](http://aws.amazon.com/cloudfront/)
 
+Tagged with: none | Test types: header | Found at: caching-hosting-cdn/cloudfront.js
 
-## Amazon CloudFront
+### Angular [http://angularjs.org/](http://angularjs.org/)
 
-[http://aws.amazon.com/cloudfront/](http://aws.amazon.com/cloudfront/)
+Tagged with: none | Test types: global, filename | Found at: framework/angular.js
 
-Needs description
-
-Test types: header
-
-Found at: caching-hosting-cdn/cloudfront.js
-
-
-
-## Angular
-
-[http://angularjs.org/](http://angularjs.org/)
-
-Needs description
-
-Test types: global, filename
-
-Found at: framework/angular.js
-
-
-
-## Blogger
-
-[http://www.blogger.com](http://www.blogger.com)
+### Blogger [http://www.blogger.com](http://www.blogger.com)
 
 Blog publishing service owned by Google, a.k.a. blogspot.com
 
-Test types: meta
+Tagged with: none | Test types: meta | Found at: cms/blogger.js
 
-Found at: cms/blogger.js
+### Bootstrap [http://getbootstrap.com](http://getbootstrap.com)
 
+Tagged with: frameworks | Test types: filename | Found at: framework/bootstrap.js
 
+### CloudFlare [http://www.cloudflare.com](http://www.cloudflare.com)
 
-## Bootstrap
+Tagged with: none | Test types: header | Found at: caching-hosting-cdn/cloudflare.js
 
-[http://getbootstrap.com](http://getbootstrap.com)
+### EdgeCast [http://www.edgecast.com/](http://www.edgecast.com/)
 
-Needs description
+Tagged with: none | Test types: header | Found at: caching-hosting-cdn/edgecast.js
 
-Tagged with: frameworks
+### Facebook Like button
 
-Test types: filename
+Tagged with: none | Test types: selector | Found at: social/facebook-like-button.js
 
-Found at: framework/bootstrap.js
+### Facebook Open Graph tags [https://developers.facebook.com/docs/opengraph/](https://developers.facebook.com/docs/opengraph/)
 
+Tagged with: none | Test types: meta | Found at: social/facebook-open-graph.js
 
+### Google Analytics [http://www.google.com/analytics](http://www.google.com/analytics)
 
-## CloudFlare
+Tagged with: none | Test types: filename | Found at: analytics/google-analytics.js
 
-[http://www.cloudflare.com](http://www.cloudflare.com)
+### Google Analytics (Doubleclick) [http://www.google.com/analytics](http://www.google.com/analytics)
 
-Needs description
+Tagged with: none | Test types: filename | Found at: analytics/google-analytics-doubleclick.js
 
-Test types: header
+### Isotope [http://isotope.metafizzy.co/](http://isotope.metafizzy.co/)
 
-Found at: caching-hosting-cdn/cloudflare.js
+Tagged with: jquery | Test types: jquery | Found at: jquery/isotope.js
 
+### jQuery [http://jquery.com](http://jquery.com)
 
+Tagged with: jquery | Test types: javascript | Found at: jquery/jquery.js
 
-## EdgeCast
+### jQuery Sparklines [http://omnipotent.net/jquery.sparkline/](http://omnipotent.net/jquery.sparkline/)
 
-[http://www.edgecast.com/](http://www.edgecast.com/)
+Tagged with: jquery | Test types: jquery | Found at: jquery/sparkline.js
 
-Needs description
+### jQuery UI [http://jqueryui.com](http://jqueryui.com)
 
-Test types: header
+Tagged with: jquery | Test types: filename | Found at: jquery/jquery-ui.js
 
-Found at: caching-hosting-cdn/edgecast.js
+### Masonry [http://masonry.desandro.com/](http://masonry.desandro.com/)
 
+Tagged with: none | Test types: global | Found at: uncategorized/masonry.js
 
+### Mollom [http://mollom.com](http://mollom.com)
 
-## Facebook Like button
+Tagged with: captcha | Test types: filename | Found at: uncategorized/mollom.js
 
-Needs description
+### RackCache
 
-Test types: selector
+Tagged with: none | Test types: header | Found at: caching-hosting-cdn/rack-cache.js
 
-Found at: social/facebook-like-button.js
+### reCAPTCHA [http://www.google.com/recaptcha/](http://www.google.com/recaptcha/)
 
+Tagged with: captcha | Test types: filename | Found at: uncategorized/recaptcha.js
 
+### S3
 
-## Facebook Open Graph tags
+Tagged with: none | Test types: header | Found at: caching-hosting-cdn/s3.js
 
-[https://developers.facebook.com/docs/opengraph/](https://developers.facebook.com/docs/opengraph/)
+### StoryJS/TimelineJS
 
-Needs description
+Tagged with: none | Test types: global | Found at: uncategorized/storyjs.js
 
-Test types: meta
-
-Found at: social/facebook-open-graph.js
-
-
-
-## Google Analytics
-
-[http://www.google.com/analytics](http://www.google.com/analytics)
-
-Needs description
-
-Test types: filename
-
-Found at: analytics/google-analytics.js
-
-
-
-## Google Analytics (Doubleclick)
-
-[http://www.google.com/analytics](http://www.google.com/analytics)
-
-Needs description
-
-Test types: filename
-
-Found at: analytics/google-analytics-doubleclick.js
-
-
-
-## Isotope
-
-[http://isotope.metafizzy.co/](http://isotope.metafizzy.co/)
-
-Needs description
-
-Tagged with: jquery
-
-Test types: jquery
-
-Found at: jquery/isotope.js
-
-
-
-## jQuery
-
-[http://jquery.com](http://jquery.com)
-
-Needs description
-
-Tagged with: jquery
-
-Test types: javascript
-
-Found at: jquery/jquery.js
-
-
-
-## jQuery Sparklines
-
-[http://omnipotent.net/jquery.sparkline/](http://omnipotent.net/jquery.sparkline/)
-
-Needs description
-
-Tagged with: jquery
-
-Test types: jquery
-
-Found at: jquery/sparkline.js
-
-
-
-## jQuery UI
-
-[http://jqueryui.com](http://jqueryui.com)
-
-Needs description
-
-Tagged with: jquery
-
-Test types: filename
-
-Found at: jquery/jquery-ui.js
-
-
-
-## Masonry
-
-[http://masonry.desandro.com/](http://masonry.desandro.com/)
-
-Needs description
-
-Test types: global
-
-Found at: uncategorized/masonry.js
-
-
-
-## Mollom
-
-[http://mollom.com](http://mollom.com)
-
-Needs description
-
-Tagged with: captcha
-
-Test types: filename
-
-Found at: uncategorized/mollom.js
-
-
-
-## RackCache
-
-Needs description
-
-Test types: header
-
-Found at: caching-hosting-cdn/rack-cache.js
-
-
-
-## reCAPTCHA
-
-[http://www.google.com/recaptcha/](http://www.google.com/recaptcha/)
-
-Needs description
-
-Tagged with: captcha
-
-Test types: filename
-
-Found at: uncategorized/recaptcha.js
-
-
-
-## S3
-
-Needs description
-
-Test types: header
-
-Found at: caching-hosting-cdn/s3.js
-
-
-
-## StoryJS/TimelineJS
-
-Needs description
-
-Test types: global
-
-Found at: uncategorized/storyjs.js
-
-
-
-## Tabletop.js
-
-[http://github.com/jsoma/tabletop](http://github.com/jsoma/tabletop)
+### Tabletop.js [http://github.com/jsoma/tabletop](http://github.com/jsoma/tabletop)
 
 Tabletop.js allows you to use Google Spreadsheets as a JSON-y CMS
 
-Tagged with: javascript
+Tagged with: javascript | Test types: global | Found at: uncategorized/tabletop.js
 
-Test types: global
+### Timeline JS, embeddable version [http://timeline.knightlab.com](http://timeline.knightlab.com)
 
-Found at: uncategorized/tabletop.js
+Tagged with: none | Test types: selector | Found at: uncategorized/timeline-js.js
 
+### Tumblr [http://tumblr.com](http://tumblr.com)
 
+Tagged with: none | Test types: header | Found at: cms/tumblr.js
 
-## Timeline JS, embeddable version
-
-[http://timeline.knightlab.com](http://timeline.knightlab.com)
-
-Needs description
-
-Test types: selector
-
-Found at: uncategorized/timeline-js.js
-
-
-
-## Tumblr
-
-[http://tumblr.com](http://tumblr.com)
-
-Needs description
-
-Test types: header
-
-Found at: cms/tumblr.js
-
-
-
-## Twitter Bootstrap, Responsive CSS
-
-[http://getbootstrap.com](http://getbootstrap.com)
+### Twitter Bootstrap, Responsive CSS [http://getbootstrap.com](http://getbootstrap.com)
 
 Prior to Bootstrap 3, you could enable responsive design by adding in an additional stylesheet.
 
-Test types: filename
+Tagged with: none | Test types: filename | Found at: framework/bootstrap-responsive.js
 
-Found at: framework/bootstrap-responsive.js
+### Twitter card
 
+Tagged with: none | Test types: meta | Found at: social/twitter-card.js
 
+### Varnish
 
-## Twitter card
+Tagged with: none | Test types: header | Found at: caching-hosting-cdn/varnish.js
 
-Needs description
+### W3 Total Cache
 
-Test types: meta
+Tagged with: none | Test types: text | Found at: wordpress/w3-total-cache.js
 
-Found at: social/twitter-card.js
+### Wordpress [http://www.wordpress.org](http://www.wordpress.org)
 
+Tagged with: none | Test types: meta | Found at: wordpress/wordpress.js
 
-
-## Varnish
-
-Needs description
-
-Test types: header
-
-Found at: caching-hosting-cdn/varnish.js
-
-
-
-## W3 Total Cache
-
-Needs description
-
-Test types: text
-
-Found at: wordpress/w3-total-cache.js
-
-
-
-## Wordpress
-
-[http://www.wordpress.org](http://www.wordpress.org)
-
-Needs description
-
-Test types: meta
-
-Found at: wordpress/wordpress.js
-
-
-
-## Wordpress.com
-
-[http://www.wordpress.com](http://www.wordpress.com)
+### Wordpress.com [http://www.wordpress.com](http://www.wordpress.com)
 
 Hosted WP
 
-Test types: meta
+Tagged with: none | Test types: meta | Found at: wordpress/wordpress.com.js
 
-Found at: wordpress/wordpress.com.js
+### WP-Super-Cache
 
-
-
-## WP-Super-Cache
-
-Needs description
-
-Test types: text
-
-Found at: wordpress/wp-super-cache.js
+Tagged with: none | Test types: text | Found at: wordpress/wp-super-cache.js

@@ -16,17 +16,17 @@ scanner.importClues( function(err) {
       return clue.title.toLowerCase();
   } )
   .forEach( function(clue) {
-    lines.push("");
-    lines.push('## ' + clue.title);
-    if(clue.url) {
-      lines.push("[" + clue.url + "](" + clue.url + ")");
-    }
-    lines.push(clue.description || "Needs description");
-    if(clue.tags) {
-      lines.push("Tagged with: " + clue.tags);
-    }
-    lines.push("Test types: " + clue.tests.map( function(test) { return test.type } ).join(", "));
-    lines.push("Found at: " + path.relative(CLUEROOT, clue.path));
+    lines.push('### ' + clue.title);
+
+    if(clue.url)
+      lines[lines.length-1] = lines[lines.length-1] + " [" + clue.url + "](" + clue.url + ")";
+
+    if(clue.description)
+      lines.push(clue.description);
+
+    lines.push("Tagged with: " + (!clue.tags ? "none" : clue.tags) +
+      " | Test types: " + clue.tests.map( function(test) { return test.type } ).join(", ") +
+      " | " + "Found at: " + path.relative(CLUEROOT, clue.path));
   });
   console.log(lines.join("\n\n"));
 });
