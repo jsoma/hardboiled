@@ -21,12 +21,12 @@ scanner.importClues( function(err) {
     if(clue.url) {
       lines.push("[" + clue.url + "](" + clue.url + ")");
     }
-    lines.push("Found at: " + path.relative(CLUEROOT, clue.path));
     lines.push(clue.description || "Needs description");
     if(clue.tags) {
       lines.push("Tagged with: " + clue.tags);
     }
     lines.push("Test types: " + clue.tests.map( function(test) { return test.type } ).join(", "));
+    lines.push("Found at: " + path.relative(CLUEROOT, clue.path));
   });
-  console.log(lines.join("\n"));
+  console.log(lines.join("\n\n"));
 });
