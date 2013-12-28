@@ -14,14 +14,15 @@ Hardboiled.Engines = require './engines'
 
 class Hardboiled.Clue
     constructor: (options) ->
-        if options.path
-            content = fs.readFileSync(options.path, 'utf8')
+        @path = options.path
+        if @path
+            content = fs.readFileSync(@path, 'utf8')
             sandbox = {}
             vm.runInNewContext('var data = ' + content, sandbox)
             data = sandbox.data
         
+        _.extend(this, options.data || data)
         @data = options.data || data
-        @tests = data.tests
     
     toMatch: () =>
         title: @data.title
@@ -280,7 +281,7 @@ class Hardboiled.Scanner
                 continue unless /\.js$/.test file
                 clue = new Hardboiled.Clue(path: file)
                 @clues.push clue
-            callback()
+            callback(this)
 
     scan: (options, callback) ->
         # Clues haven't been added yet? Let's initialize that and come back later.
