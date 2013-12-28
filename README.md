@@ -75,7 +75,7 @@ This one's for the iframe version of the [Facebook Like button](https://develope
 
 ### Technology Info
 
-The technology can be described using a `title`, `description`, `url`, and comma-delited `tags`. The technology is tested using an array of `tests`.
+The technology can be described using a `title`, `description`, `url`, and comma-delimited `tags`. The technology is tested using an array of `tests`.
 
 Tags covering a category should be kept plural (e.g. **frameworks** not **framework**).
 
