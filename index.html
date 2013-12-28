@@ -1,1 +1,318 @@
-My GitHub Page
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Hardboiled : A node.js detective kit for investigating how web sites are built." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Hardboiled</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/jsoma/hardboiled">View on GitHub</a>
+
+          <h1 id="project_title">Hardboiled</h1>
+          <h2 id="project_tagline">A node.js detective kit for investigating how web sites are built.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/jsoma/hardboiled/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/jsoma/hardboiled/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="hardboiled" class="anchor" href="#hardboiled"><span class="octicon octicon-link"></span></a>Hardboiled!</h1>
+
+<p><strong>Hardboiled</strong> is a detective kit for investigating <strong>how web sites are built.</strong> It runs JavaScript, scrapes stylesheets, and isn't afraid to <strong>break a few bones</strong> to get the job done. It tracks down frameworks, jQuery plugins, grid systems, and anything else your dark heart desires.</p>
+
+<p><em>Hardboiled is a work-in-progress like crazy. I've never written node anything before, and it's really just up so I can hassle folks for feedback. The ever-so-convenient web app is on its way.</em></p>
+
+<h2>
+<a name="introduction" class="anchor" href="#introduction"><span class="octicon octicon-link"></span></a>Introduction</h2>
+
+<p>Hardboiled goes a little something like this</p>
+
+<div class="highlight highlight-js"><pre><span class="nx">hardboiled</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'hardboiled'</span><span class="p">)</span>
+
+<span class="c1">// When you scan, you get back a Hardboiled.Page object that can do all sorts of stuff. These are the basics you're looking for.</span>
+<span class="nx">hardboiled</span><span class="p">.</span><span class="nx">scan</span><span class="p">(</span><span class="s2">"http://handsomeatlas.com"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">page</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">page</span><span class="p">.</span><span class="nx">url</span><span class="p">)</span>
+  <span class="c1">// http://handsomeatlas.com</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">page</span><span class="p">.</span><span class="nx">matches</span><span class="p">)</span>
+  <span class="c1">// [</span>
+  <span class="c1">//   { title: 'Google Analytics',</span>
+  <span class="c1">//     description: undefined,</span>
+  <span class="c1">//     url: 'http://www.google.com/analytics' },</span>
+  <span class="c1">//   { title: 'Twitter Bootstrap, Responsive CSS',</span>
+  <span class="c1">//     description: 'Prior to Bootstrap 3, you could enable responsive design by adding in an additional stylesheet.',</span>
+  <span class="c1">//     url: 'http://getbootstrap.com' },</span>
+  <span class="c1">//   { title: 'jQuery',</span>
+  <span class="c1">//     description: undefined,</span>
+  <span class="c1">//     url: 'http://jquery.com' },</span>
+  <span class="c1">//   { title: 'Facebook Like button',</span>
+  <span class="c1">//     description: undefined,</span>
+  <span class="c1">//     url: undefined }</span>
+  <span class="c1">//  ]</span>
+<span class="p">})</span>
+</pre></div>
+
+<h2>
+<a name="how-it-works" class="anchor" href="#how-it-works"><span class="octicon octicon-link"></span></a>How it works</h2>
+
+<p><strong>Hardboiled</strong> is based on clue files, which are JSON-y files describing different technologies. They live (or will live) cluttered in various subdirectories in <code>/clues/</code>, although you can specify other directories if you'd like.</p>
+
+<p>We can only detect as many technologies as we have clues for, so please be a hero and contribute wicked-awesome clues.</p>
+
+<h2>
+<a name="clues" class="anchor" href="#clues"><span class="octicon octicon-link"></span></a>Clues</h2>
+
+<p>Hardboiled depends on user-submitted clues to decipher the web. Each clue file describes the technology that's being looked for and includes the tests needed to figure out if the page is using the technology.</p>
+
+<div class="highlight highlight-js"><pre><span class="p">{</span>
+    <span class="nx">title</span><span class="o">:</span> <span class="s2">"Facebook Like button (iframe version)"</span><span class="p">,</span>
+    <span class="nx">description</span><span class="o">:</span> <span class="s2">"This is the ubiquitous button that is used to 'Like' a page. The iframe version has the ability to comment."</span><span class="p">,</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s2">"https://developers.facebook.com/docs/plugins/like-button/"</span><span class="p">,</span>
+    <span class="nx">tags</span><span class="o">:</span> <span class="s2">"social, facebook"</span><span class="p">,</span>
+    <span class="nx">tests</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s1">'selector'</span><span class="p">,</span> 
+        <span class="nx">test</span><span class="o">:</span> <span class="s1">'iframe[src^="http://www.facebook.com/plugins/like.php"]'</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>This one's for the iframe version of the <a href="https://developers.facebook.com/docs/plugins/like-button/">Facebook Like button</a>. Its only test looks for an iframe with a particular <code>src</code>. If you have multiple tests, it only takes passing one to validate the clue.</p>
+
+<h3>
+<a name="technology-info" class="anchor" href="#technology-info"><span class="octicon octicon-link"></span></a>Technology Info</h3>
+
+<p>The technology can be described using a <code>title</code>, <code>description</code>, <code>url</code>, and comma-delited <code>tags</code>. The technology is tested using an array of <code>tests</code>.</p>
+
+<p>Tags covering a category should be kept plural (e.g. <strong>frameworks</strong> not <strong>framework</strong>).</p>
+
+<h3>
+<a name="test-info" class="anchor" href="#test-info"><span class="octicon octicon-link"></span></a>Test info</h3>
+
+<p>Well those are pretty complicated, let's make a whole section about them.</p>
+
+<h2>
+<a name="test-types" class="anchor" href="#test-types"><span class="octicon octicon-link"></span></a>Test types</h2>
+
+<p>Tests each have a <code>type</code> and a <code>test</code>.</p>
+
+<p>Types of tests are <a href="#filename"><code>filename</code></a>, <a href="#selector"><code>selector</code></a>, <a href="#global"><code>global</code></a>, <a href="#sudo"><code>javascript</code></a>, <a href="#sudo"><code>sudo</code></a>, <a href="#header"><code>header</code></a>, <a href="#jquery"><code>jquery</code></a> and <a href="#meta"><code>meta</code></a>.</p>
+
+<h4>
+<a name="filename" class="anchor" href="#filename"><span class="octicon octicon-link"></span></a>filename</h4>
+
+<div class="highlight highlight-js"><pre><span class="p">{</span>
+  <span class="nx">type</span><span class="o">:</span> <span class="s1">'filename'</span><span class="p">,</span>
+  <span class="nx">test</span><span class="o">:</span> <span class="s1">'bootstrap-responsive'</span>
+<span class="p">}</span>
+</pre></div>
+
+<p><code>filename</code> looks for JavaScript or stylesheet files with a given name. It also does some normalization and stripping, so 'bootstrap-reponsive' will match 'bootstrap-responsive.min.css'.</p>
+
+<p><code>filename</code> is the easiest (and least effective) type of test, but it's a pretty good start. Send a pull and later on maybe someone will upgrade it to something a bit fancier? Check out the jQuery example under <code>javascript</code> to see what kind of improvements that could be made beyond looking for a file named <code>jquery.js</code>.</p>
+
+<h4>
+<a name="selector" class="anchor" href="#selector"><span class="octicon octicon-link"></span></a>selector</h4>
+
+<div class="highlight highlight-js"><pre><span class="p">{</span>
+  <span class="nx">type</span><span class="o">:</span> <span class="s1">'selector'</span><span class="p">,</span> 
+  <span class="nx">test</span><span class="o">:</span> <span class="s1">'iframe[src^="http://embed.verite.co/timeline"]'</span>
+<span class="p">}</span>
+</pre></div>
+
+<p><code>selector</code> looks for an element on the page. This example looks for the embedded version of <a href="http://timeline.knightlab.com">TimelineJS</a>, an iframe beginning with <code>http://embed.verite.co/timeline</code>.</p>
+
+<h4>
+<a name="global" class="anchor" href="#global"><span class="octicon octicon-link"></span></a>global</h4>
+
+<div class="highlight highlight-js"><pre><span class="p">{</span>
+  <span class="nx">type</span><span class="o">:</span> <span class="s1">'global'</span><span class="p">,</span>
+  <span class="nx">test</span><span class="o">:</span> <span class="s1">'createStoryJS'</span>
+<span class="p">}</span>
+</pre></div>
+
+<p><code>global</code> checks if a variable/function/etc with that name exists off of the <code>window</code> object on the page. You could naively look for jQuery by trying to find '$', but this example looks for <a href="http://timeline.knightlab.com">TimelineJS</a>/<a href="https://github.com/NUKnightLab/StoryJS-Core">StoryJS</a>.</p>
+
+<h4>
+<a name="header" class="anchor" href="#header"><span class="octicon octicon-link"></span></a>header</h4>
+
+<div class="highlight highlight-js"><pre><span class="p">{</span>
+  <span class="nx">type</span><span class="o">:</span> <span class="s1">'header'</span><span class="p">,</span>
+  <span class="nx">test</span><span class="o">:</span> <span class="p">{</span> <span class="s1">'Server'</span><span class="o">:</span> <span class="s1">'AmazonS3'</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="p">{</span>
+  <span class="nx">type</span><span class="o">:</span> <span class="s1">'header'</span><span class="p">,</span>
+  <span class="nx">test</span><span class="o">:</span> <span class="s1">'X-Varnish'</span>
+<span class="p">}</span>
+</pre></div>
+
+<p><code>header</code> attempts to find headers with the given name. Looks in fetched content, too, for the time being, although that should probably be a setting. If you don't care about the value of the header you can just pass a string, otherwise pass a hash.</p>
+
+<h4>
+<a name="jquery" class="anchor" href="#jquery"><span class="octicon octicon-link"></span></a>jquery</h4>
+
+<div class="highlight highlight-js"><pre><span class="p">{</span>
+  <span class="nx">type</span><span class="o">:</span> <span class="s1">'jquery'</span><span class="p">,</span>
+  <span class="nx">test</span><span class="o">:</span> <span class="s1">'isotope'</span>
+<span class="p">}</span>
+</pre></div>
+
+<p><code>jquery</code> tests if you can execute a given method on a jQuery node. It's an easy way to test for jQuery plugins!</p>
+
+<p>This test looks for the tiling plugin <a href="http://isotope.metafizzy.co">Isotope</a> by attempting (roughly) <code>$("&lt;div&gt;&lt;/div&gt;").isotope</code>. There can probably be a conflict if there are multiple instances of jQuery living on the same page, but hey, that's probably causing problems on the site anyway.</p>
+
+<h4>
+<a name="javascript" class="anchor" href="#javascript"><span class="octicon octicon-link"></span></a>javascript</h4>
+
+<div class="highlight highlight-js"><pre><span class="p">{</span>
+  <span class="nx">type</span><span class="o">:</span> <span class="s1">'javascript'</span><span class="p">,</span>
+  <span class="nx">test</span><span class="o">:</span>  <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">keys</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nb">window</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">val</span><span class="p">,</span> <span class="nx">key</span><span class="p">;</span>
+
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="nx">keys</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">key</span> <span class="o">=</span> <span class="nx">keys</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+      <span class="k">if</span><span class="p">(</span><span class="nb">window</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="nb">window</span><span class="p">[</span><span class="nx">key</span><span class="p">].</span><span class="nx">fn</span> <span class="o">&amp;&amp;</span> <span class="nb">window</span><span class="p">[</span><span class="nx">key</span><span class="p">].</span><span class="nx">fn</span><span class="p">.</span><span class="nx">jquery</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">{</span> <span class="nx">version</span><span class="o">:</span> <span class="nb">window</span><span class="p">[</span><span class="nx">key</span><span class="p">].</span><span class="nx">fn</span><span class="p">.</span><span class="nx">jquery</span> <span class="p">};</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p><code>javascript</code> executes a JavaScript function on the page and returns the result. If you want to stay simple it can just return <code>true</code> or <code>false</code>, but it can also send back additional information, e.g. <code>{ version: '3.4.0' }</code>, which will be saved by Hardboiled.</p>
+
+<p>This example is a fancy way of discovering jQuery, along with its version number. It loops through all of the keys attached to <code>window</code>, seeing if any will return <code>.fn.jquery</code>, which is the jQuery version number.</p>
+
+<h4>
+<a name="sudo" class="anchor" href="#sudo"><span class="octicon octicon-link"></span></a>sudo</h4>
+
+<div class="highlight highlight-js"><pre><span class="p">{</span>
+  <span class="nx">type</span><span class="o">:</span> <span class="s1">'sudo'</span><span class="p">,</span>
+  <span class="nx">test</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">page</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">resource</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">page</span><span class="p">.</span><span class="nx">resources</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">resource</span> <span class="o">=</span> <span class="nx">page</span><span class="p">.</span><span class="nx">resources</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+      <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">resource</span><span class="p">.</span><span class="nx">headers</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">resource</span><span class="p">.</span><span class="nx">headers</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nx">name</span> <span class="o">==</span> <span class="s2">"Server"</span> <span class="o">&amp;&amp;</span> <span class="nx">resource</span><span class="p">.</span><span class="nx">headers</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nx">value</span> <span class="o">===</span> <span class="s2">"AmazonS3"</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p><code>sudo</code> executes in Hardboiled space, not JavaScript page space. You have a function that's passed the <code>page</code> object, which you can use to loop through files, check contents, and basically tear apart every request looking for information.</p>
+
+<p>For example, objects stored on S3 return a header called <code>Server</code> with the value <code>AmazonS3</code>. We found them above by going through every resource the page requested (although now we'd just use <code>header</code>).</p>
+
+<h4>
+<a name="meta" class="anchor" href="#meta"><span class="octicon octicon-link"></span></a>meta</h4>
+
+<div class="highlight highlight-js"><pre><span class="p">{</span>
+  <span class="nx">type</span><span class="o">:</span> <span class="s1">'meta'</span><span class="p">,</span>
+  <span class="nx">test</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s1">'generator'</span><span class="p">,</span>
+    <span class="nx">test</span><span class="o">:</span> <span class="sr">/\^Wordpress/</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p><code>meta</code> looks for meta tags that match a given set of attributes. For example, if we wanted to see if a given blog was being served by WordPress.</p>
+
+<p>This looks for a meta tag with the <code>name</code> attribute of <code>generator</code> and a <code>content</code> attribute that starts with <code>Wordpress</code>. You don't have to use regular expressions, but if you provide a string instead you need an exact match.</p>
+
+<p><a href="#test-types">Back to test types</a></p>
+
+<h2>
+<a name="engines" class="anchor" href="#engines"><span class="octicon octicon-link"></span></a>Engines</h2>
+
+<p>Hardboiled can use a few engines to interact with the web. Right now we've got <a href="http://phantomjs.org">PhantomJS</a> and a partial implementation for <a href="https://github.com/tmpvar/jsdom">jsdom</a>. Who wants to write one for <a href="http://zombie.labnotes.org">Zombie</a>?</p>
+
+<h3>
+<a name="phantomjs" class="anchor" href="#phantomjs"><span class="octicon octicon-link"></span></a>PhantomJS</h3>
+
+<p><a href="http://phantomjs.org">PhantomJS</a> is a "headless WebKit" - basically, an invisible web browser that you can control using code. We use it to simulate a browser visiting a web site, that way we can test the functioning of the site in a practical way (ie running JavaScript) instead of manually looking at all of the scripts. If you use <a href="https://github.com/dparshin/phantomjs/tree/resource_body">this fork</a> you can actually look at the contents of the stylesheets and javascript.</p>
+
+<h3>
+<a name="jsdom" class="anchor" href="#jsdom"><span class="octicon octicon-link"></span></a>jsdom</h3>
+
+<p>jsdom is a much much much lighter-weight PhantomJS (although that might be a bit of a stretch). Read more at <a href="https://github.com/tmpvar/jsdom">https://github.com/tmpvar/jsdom</a>.</p>
+
+<h4>
+<a name="limitations" class="anchor" href="#limitations"><span class="octicon octicon-link"></span></a>Limitations</h4>
+
+<p>Stick with PhantomJS if you can!</p>
+
+<h2>
+<a name="etc" class="anchor" href="#etc"><span class="octicon octicon-link"></span></a>Etc</h2>
+
+<p>Hexes, curses and swear words can be directed to me at <a href="@dangerscarf">https://twitter.com/dangerscarf</a>.</p>
+
+<h2>
+<a name="todo" class="anchor" href="#todo"><span class="octicon octicon-link"></span></a>TODO</h2>
+
+<ul>
+<li>Deal with errors
+
+<ul>
+<li>Clue-parsing</li>
+<li>Site-pulling</li>
+<li>Whatever else</li>
+</ul>
+</li>
+<li>Finalize API</li>
+<li>Docs docs docs</li>
+<li>Fall in line with node code conventions (aka clean the hell out of code)</li>
+<li>Understand that blahblah-8f6ca9b17ae3eba1e30276eef0a16282cb651c78.css is really blahblah.css</li>
+<li>Pull a list of libraries supported so you don't have to browse through <code>/clues/</code>
+</li>
+<li>Parse/display version/etc info</li>
+<li>log all of the stuff that doesn't yet mean anything (js filenames, meta generator tags, etc)</li>
+<li>in fact, make the whole thing a page analysis instead of just page info. Hardboiled.Analysis!</li>
+<li>Figure out callback stuff</li>
+<li>Don't automatically download huge files (or maybe per-page max?)</li>
+<li>Have a limit of the number of resources downloaded</li>
+<li>Allow tests to be ANY or ALL</li>
+<li>Make header search only work for initial page</li>
+<li>Make header keep data on what triggered it</li>
+<li>Tests that map X site to Y tech, so you can run one at a time</li>
+<li>Organization of clues</li>
+<li>Flesh out jsdom limitations (or fill out jsdom engine abilities)</li>
+<li>Testing</li>
+<li>Implement eval for jsdom for the sake of selectors/etc (and fix up jsdom in general)</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Hardboiled maintained by <a href="https://github.com/jsoma">jsoma</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
