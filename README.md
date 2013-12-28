@@ -1,6 +1,6 @@
 # Hardboiled!
 
-**Hardboiled** is a detective kit for investigating **how web sites are built.** It runs JavaScript, scrapes stylesheets, and isn't afraid to **break a few bones** to get the job done. It tracks down frameworks, jQuery plugins, grid systems, and anything else your dark heart desires.
+**Hardboiled** is a detective kit for investigating **how web sites are built.** It runs JavaScript, scrapes stylesheets, and isn't afraid to **break a few bones** to get the job done. It tracks down frameworks, jQuery plugins, grid systems, and anything else your dark heart desires. See a list of what we currently pick up in [clues.md](https://github.com/jsoma/hardboiled/blob/master/clues.md).
 
 *Hardboiled is a work-in-progress like crazy. I've never written node anything before, and it's really just up so I can hassle folks for feedback. The ever-so-convenient web app is on its way.*
 
