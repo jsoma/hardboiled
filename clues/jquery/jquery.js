@@ -1,6 +1,7 @@
 {
     title: 'jQuery',
     url: 'http://jquery.com',
+    description: 'jQuery is a fast, small, and feature-rich JavaScript library.',
     tags: 'jquery',
     tests: [
       {

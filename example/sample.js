@@ -1,6 +1,6 @@
 var hardboiled = require('../lib/hardboiled');
 
-hardboiled.scan("http://leafletjs.com/", function(err, page) {
+hardboiled.scan("http://graphics.latimes.com/la-streets-map/", function (err, page) {
   console.log("URL is " + page.url);
   // URL is http://handsomeatlas.com
   

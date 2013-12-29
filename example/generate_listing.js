@@ -12,6 +12,8 @@ lines.push("These are all of the technologies that Hardboiled can detect. This l
 
 CLUEROOT = path.join(__dirname, '../clues')
 scanner.importClues( function(err) {
+  
+  lines.push("Hardboiled currently supports " + scanner.clues.length + " different clues.");
   _.sortBy(scanner.clues, function(clue) { 
       return clue.title.toLowerCase();
   } )
