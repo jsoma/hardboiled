@@ -2,7 +2,7 @@
 
 These are all of the technologies that Hardboiled can detect. This list is automatically generated from the `clues` directory.
 
-Hardboiled currently supports 88 different clues.
+Hardboiled currently supports 95 different clues.
 
 ### Amazon CloudFront [http://aws.amazon.com/cloudfront/](http://aws.amazon.com/cloudfront/)
 
@@ -132,6 +132,10 @@ Tagged with: jquery | Test types: javascript | Found at: [jquery/jquery.js](http
 
 Tagged with: jquery | Test types: jquery | Found at: [jquery/address.js](https://github.com/jsoma/hardboiled/blob/master/clues/jquery/address.js)
 
+### jQuery Easing [http://gsgd.co.uk/sandbox/jquery/easing/](http://gsgd.co.uk/sandbox/jquery/easing/)
+
+Tagged with: jquery | Test types: global | Found at: [jquery/easing.js](https://github.com/jsoma/hardboiled/blob/master/clues/jquery/easing.js)
+
 ### jQuery Geocodify [http://datadesk.github.io/jquery-geocodify/](http://datadesk.github.io/jquery-geocodify/)
 
 Autocomplete for address searches
@@ -152,6 +156,16 @@ Tagged with: jquery | Test types: javascript | Found at: [jquery/inview.js](http
 
 Tagged with: jquery | Test types: jquery | Found at: [jquery/sparkline.js](https://github.com/jsoma/hardboiled/blob/master/clues/jquery/sparkline.js)
 
+### jQuery Superfish [http://plugins.jquery.com/superfish/](http://plugins.jquery.com/superfish/)
+
+Superfish is a jQuery plugin that adds usability enhancements to multi-level drop-down menus. Fully supports touch devices and keyboard interaction.
+
+Tagged with: jquery | Test types: global | Found at: [jquery/superfish.js](https://github.com/jsoma/hardboiled/blob/master/clues/jquery/superfish.js)
+
+### jQuery Touch Click [https://github.com/pesblog/jquery-touch-click](https://github.com/pesblog/jquery-touch-click)
+
+Tagged with: jquery | Test types: jquery | Found at: [jquery/touchclick.js](https://github.com/jsoma/hardboiled/blob/master/clues/jquery/touchclick.js)
+
 ### jQuery UI [http://jqueryui.com](http://jqueryui.com)
 
 Tagged with: jquery | Test types: filename | Found at: [jquery/jquery-ui.js](https://github.com/jsoma/hardboiled/blob/master/clues/jquery/jquery-ui.js)
@@ -159,6 +173,12 @@ Tagged with: jquery | Test types: filename | Found at: [jquery/jquery-ui.js](htt
 ### jQuery UI Datepicker [http://api.jqueryui.com/datepicker/](http://api.jqueryui.com/datepicker/)
 
 Tagged with: jquery | Test types: jquery | Found at: [jquery/datepicker.js](https://github.com/jsoma/hardboiled/blob/master/clues/jquery/datepicker.js)
+
+### JW Player [http://www.jwplayer.com](http://www.jwplayer.com)
+
+HTML5/Flash video player
+
+Tagged with: none | Test types: global | Found at: [uncategorized/jwplayer.js](https://github.com/jsoma/hardboiled/blob/master/clues/uncategorized/jwplayer.js)
 
 ### Leaflet markercluster [https://github.com/Leaflet/Leaflet.markercluster](https://github.com/Leaflet/Leaflet.markercluster)
 
@@ -228,6 +248,10 @@ Tagged with: none | Test types: global | Found at: [templates/mustache.js](https
 
 Tagged with: none | Test types: global | Found at: [uncategorized/newrelic-user-monitoring.js](https://github.com/jsoma/hardboiled/blob/master/clues/uncategorized/newrelic-user-monitoring.js)
 
+### PageLines [http://www.pagelines.com](http://www.pagelines.com)
+
+Tagged with: none | Test types: text | Found at: [wordpress/pagelines.js](https://github.com/jsoma/hardboiled/blob/master/clues/wordpress/pagelines.js)
+
 ### Popcorn.js [http://popcornjs.org](http://popcornjs.org)
 
 Tagged with: none | Test types: global | Found at: [uncategorized/popcorn.js](https://github.com/jsoma/hardboiled/blob/master/clues/uncategorized/popcorn.js)
@@ -269,6 +293,10 @@ Tagged with: captcha | Test types: filename | Found at: [uncategorized/recaptcha
 ### reel [http://jquery.vostrel.cz/reel](http://jquery.vostrel.cz/reel)
 
 Tagged with: jquery | Test types: jquery | Found at: [jquery/reel.js](https://github.com/jsoma/hardboiled/blob/master/clues/jquery/reel.js)
+
+### RepostUs [http://www.repost.us](http://www.repost.us)
+
+Tagged with: none | Test types: meta | Found at: [uncategorized/repost-us.js](https://github.com/jsoma/hardboiled/blob/master/clues/uncategorized/repost-us.js)
 
 ### Require.js [http://requirejs.org](http://requirejs.org)
 
@@ -411,3 +439,7 @@ Tagged with: none | Test types: meta | Found at: [wordpress/wordpress.com.js](ht
 ### WP-Super-Cache
 
 Tagged with: none | Test types: text | Found at: [wordpress/wp-super-cache.js](https://github.com/jsoma/hardboiled/blob/master/clues/wordpress/wp-super-cache.js)
+
+### YouTube (embedded) [http://www.youtube.com/](http://www.youtube.com/)
+
+Tagged with: video | Test types: selector | Found at: [uncategorized/youtube.js](https://github.com/jsoma/hardboiled/blob/master/clues/uncategorized/youtube.js)
