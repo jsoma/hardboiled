@@ -2,7 +2,7 @@
 
 These are all of the technologies that Hardboiled can detect. This list is automatically generated from the `clues` directory.
 
-Hardboiled currently supports 84 different clues.
+Hardboiled currently supports 87 different clues.
 
 ### Amazon CloudFront [http://aws.amazon.com/cloudfront/](http://aws.amazon.com/cloudfront/)
 
@@ -76,7 +76,7 @@ Tagged with: none | Test types: meta | Found at: [social/facebook-open-graph.js]
 
 The iconic font designed for Bootstrap (...that's a pun about icons.)
 
-Tagged with: none | Test types: global | Found at: [uncategorized/font-awesome.js](https://github.com/jsoma/hardboiled/blob/master/clues/uncategorized/font-awesome.js)
+Tagged with: none | Test types: filename | Found at: [uncategorized/font-awesome.js](https://github.com/jsoma/hardboiled/blob/master/clues/uncategorized/font-awesome.js)
 
 ### Google Analytics [http://www.google.com/analytics](http://www.google.com/analytics)
 
@@ -190,6 +190,12 @@ Tagged with: none | Test types: global | Found at: [uncategorized/markermanagerp
 
 Tagged with: none | Test types: global | Found at: [uncategorized/masonry.js](https://github.com/jsoma/hardboiled/blob/master/clues/uncategorized/masonry.js)
 
+### Meteor [https://www.meteor.com/](https://www.meteor.com/)
+
+Meteor is a node.js application framework
+
+Tagged with: none | Test types: global | Found at: [framework/meteor.js](https://github.com/jsoma/hardboiled/blob/master/clues/framework/meteor.js)
+
 ### miniMonth [https://github.com/tbarmann/jquery.minimonth.js](https://github.com/tbarmann/jquery.minimonth.js)
 
 Tagged with: jquery | Test types: jquery | Found at: [jquery/minimonth.js](https://github.com/jsoma/hardboiled/blob/master/clues/jquery/minimonth.js)
@@ -226,6 +232,10 @@ Tagged with: none | Test types: global | Found at: [uncategorized/newrelic-user-
 
 Tagged with: none | Test types: global | Found at: [uncategorized/popcorn.js](https://github.com/jsoma/hardboiled/blob/master/clues/uncategorized/popcorn.js)
 
+### Prototype [http://www.prototypejs.org](http://www.prototypejs.org)
+
+Tagged with: none | Test types: global | Found at: [uncategorized/prototype.js](https://github.com/jsoma/hardboiled/blob/master/clues/uncategorized/prototype.js)
+
 ### queue.js [https://github.com/mbostock/queue](https://github.com/mbostock/queue)
 
 Queue.js is yet another asynchronous helper library for JavaScript.
@@ -245,6 +255,12 @@ Tagged with: none | Test types: global | Found at: [uncategorized/ractive.js](ht
 Raphaël is a small JavaScript library that should simplify your work with vector graphics on the web.
 
 Tagged with: none | Test types: global | Found at: [uncategorized/raphael.js](https://github.com/jsoma/hardboiled/blob/master/clues/uncategorized/raphael.js)
+
+### React [http://facebook.github.io/react/](http://facebook.github.io/react/)
+
+A JavaScript library for building user interfaces.
+
+Tagged with: none | Test types: selector | Found at: [uncategorized/react.js](https://github.com/jsoma/hardboiled/blob/master/clues/uncategorized/react.js)
 
 ### reCAPTCHA [http://www.google.com/recaptcha/](http://www.google.com/recaptcha/)
 
