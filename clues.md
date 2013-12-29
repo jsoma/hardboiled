@@ -2,7 +2,7 @@
 
 These are all of the technologies that Hardboiled can detect. This list is automatically generated from the `clues` directory.
 
-Hardboiled currently supports 80 different clues.
+Hardboiled currently supports 84 different clues.
 
 ### Amazon CloudFront [http://aws.amazon.com/cloudfront/](http://aws.amazon.com/cloudfront/)
 
@@ -40,6 +40,8 @@ Tagged with: none | Test types: global | Found at: [maps-viz-data/cartodb-js.js]
 
 ### Chartbeat [https://chartbeat.com](https://chartbeat.com)
 
+Real-time data for front-line doers
+
 Tagged with: none | Test types: filename | Found at: [analytics/chartbeat.js](https://github.com/jsoma/hardboiled/blob/master/clues/analytics/chartbeat.js)
 
 ### CloudFlare [http://www.cloudflare.com](http://www.cloudflare.com)
@@ -70,6 +72,12 @@ Tagged with: none | Test types: selector | Found at: [social/facebook-like-butto
 
 Tagged with: none | Test types: meta | Found at: [social/facebook-open-graph.js](https://github.com/jsoma/hardboiled/blob/master/clues/social/facebook-open-graph.js)
 
+### Font Awesome [http://fontawesome.io](http://fontawesome.io)
+
+The iconic font designed for Bootstrap (...that's a pun about icons.)
+
+Tagged with: none | Test types: global | Found at: [uncategorized/font-awesome.js](https://github.com/jsoma/hardboiled/blob/master/clues/uncategorized/font-awesome.js)
+
 ### Google Analytics [http://www.google.com/analytics](http://www.google.com/analytics)
 
 Tagged with: none | Test types: filename | Found at: [analytics/google-analytics.js](https://github.com/jsoma/hardboiled/blob/master/clues/analytics/google-analytics.js)
@@ -82,7 +90,13 @@ Tagged with: none | Test types: filename | Found at: [analytics/google-analytics
 
 Tagged with: none | Test types: global | Found at: [maps-viz-data/google-maps.js](https://github.com/jsoma/hardboiled/blob/master/clues/maps-viz-data/google-maps.js)
 
+### Google Web Fonts [http://www.google.com/fonts](http://www.google.com/fonts)
+
+Tagged with: none | Test types: selector | Found at: [uncategorized/google-web-fonts.js](https://github.com/jsoma/hardboiled/blob/master/clues/uncategorized/google-web-fonts.js)
+
 ### Handlebars.js [http://handlebarsjs.com](http://handlebarsjs.com)
+
+Minimal templating on steroids. Handlebars provides the power necessary to let you build semantic templates effectively with no frustration.
 
 Tagged with: none | Test types: global | Found at: [templates/handlebars.js](https://github.com/jsoma/hardboiled/blob/master/clues/templates/handlebars.js)
 
@@ -145,6 +159,12 @@ Tagged with: jquery | Test types: filename | Found at: [jquery/jquery-ui.js](htt
 ### jQuery UI Datepicker [http://api.jqueryui.com/datepicker/](http://api.jqueryui.com/datepicker/)
 
 Tagged with: jquery | Test types: jquery | Found at: [jquery/datepicker.js](https://github.com/jsoma/hardboiled/blob/master/clues/jquery/datepicker.js)
+
+### Leaflet markercluster [https://github.com/Leaflet/Leaflet.markercluster](https://github.com/Leaflet/Leaflet.markercluster)
+
+Provides Beautiful Animated Marker Clustering functionality for Leaflet, a JS library for interactive maps.
+
+Tagged with: none | Test types: global | Found at: [maps-viz-data/leaflet-markercluster.js](https://github.com/jsoma/hardboiled/blob/master/clues/maps-viz-data/leaflet-markercluster.js)
 
 ### Leaflet.js [http://leafletjs.com](http://leafletjs.com)
 
@@ -269,6 +289,10 @@ Tagged with: none | Test types: global | Found at: [maps-viz-data/simple-map-d3.
 ### SoundCiteJS [http://soundcite.knightlab.com](http://soundcite.knightlab.com)
 
 Tagged with: none | Test types: global | Found at: [uncategorized/soundcite.js](https://github.com/jsoma/hardboiled/blob/master/clues/uncategorized/soundcite.js)
+
+### Stamen Tile Layer [http://maps.stamen.com](http://maps.stamen.com)
+
+Tagged with: none | Test types: javascript | Found at: [maps-viz-data/stamen.js](https://github.com/jsoma/hardboiled/blob/master/clues/maps-viz-data/stamen.js)
 
 ### StateFace [http://propublica.github.io/stateface/](http://propublica.github.io/stateface/)
 
