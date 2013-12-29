@@ -2,7 +2,7 @@
 
 These are all of the technologies that Hardboiled can detect. This list is automatically generated from the `clues` directory.
 
-Hardboiled currently supports 87 different clues.
+Hardboiled currently supports 88 different clues.
 
 ### Amazon CloudFront [http://aws.amazon.com/cloudfront/](http://aws.amazon.com/cloudfront/)
 
@@ -327,6 +327,12 @@ Tagged with: javascript | Test types: global | Found at: [uncategorized/tabletop
 ### Tangelo [https://github.com/Kitware/tangelo](https://github.com/Kitware/tangelo)
 
 Tagged with: none | Test types: global | Found at: [uncategorized/tangelo.js](https://github.com/jsoma/hardboiled/blob/master/clues/uncategorized/tangelo.js)
+
+### three.js [http://threejs.org](http://threejs.org)
+
+JavaScript 3D library
+
+Tagged with: none | Test types: global | Found at: [uncategorized/three.js](https://github.com/jsoma/hardboiled/blob/master/clues/uncategorized/three.js)
 
 ### Timeline JS, embeddable version [http://timeline.knightlab.com](http://timeline.knightlab.com)
 
