@@ -4,8 +4,8 @@
     description: "The iconic font designed for Bootstrap (...that's a pun about icons.)",
     tests: [
       {
-        type: 'global',
-        test: 'cartodb'
+        type: 'filename',
+        test: 'font-awesome'
       }
     ]
 }
