@@ -235,7 +235,7 @@ Stick with PhantomJS if you can!
 
 ## Etc
 
-Hexes, curses and swear words can be directed to me at [https://twitter.com/dangerscarf](@dangerscarf).
+Hexes, curses and swear words can be directed to me at [@dangerscarf](https://twitter.com/dangerscarf).
 
 ## TODO
 
