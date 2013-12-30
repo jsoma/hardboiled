@@ -2,7 +2,7 @@
 
 These are all of the technologies that Hardboiled can detect. This list is automatically generated from the `clues` directory.
 
-Hardboiled currently supports 95 different clues.
+Hardboiled currently supports 105 different clues.
 
 ### Amazon CloudFront [http://aws.amazon.com/cloudfront/](http://aws.amazon.com/cloudfront/)
 
@@ -10,11 +10,11 @@ Tagged with: none | Test types: header | Found at: [caching-hosting-cdn/cloudfro
 
 ### Angular [http://angularjs.org/](http://angularjs.org/)
 
-Tagged with: none | Test types: global, filename | Found at: [framework/angular.js](https://github.com/jsoma/hardboiled/blob/master/clues/framework/angular.js)
+Tagged with: none | Test types: global, filename | Found at: [frameworks/angular.js](https://github.com/jsoma/hardboiled/blob/master/clues/frameworks/angular.js)
 
 ### Backbone [http://documentcloud.github.io/backbone/](http://documentcloud.github.io/backbone/)
 
-Tagged with: none | Test types: global | Found at: [uncategorized/backbone.js](https://github.com/jsoma/hardboiled/blob/master/clues/uncategorized/backbone.js)
+Tagged with: none | Test types: global | Found at: [frameworks/backbone.js](https://github.com/jsoma/hardboiled/blob/master/clues/frameworks/backbone.js)
 
 ### Blogger [http://www.blogger.com](http://www.blogger.com)
 
@@ -24,7 +24,7 @@ Tagged with: none | Test types: meta | Found at: [cms/blogger.js](https://github
 
 ### Bootstrap [http://getbootstrap.com](http://getbootstrap.com)
 
-Tagged with: frameworks | Test types: filename | Found at: [framework/bootstrap.js](https://github.com/jsoma/hardboiled/blob/master/clues/framework/bootstrap.js)
+Tagged with: frameworks | Test types: filename | Found at: [frameworks/bootstrap.js](https://github.com/jsoma/hardboiled/blob/master/clues/frameworks/bootstrap.js)
 
 ### canvg [http://code.google.com/p/canvg/](http://code.google.com/p/canvg/)
 
@@ -44,6 +44,12 @@ Real-time data for front-line doers
 
 Tagged with: none | Test types: filename | Found at: [analytics/chartbeat.js](https://github.com/jsoma/hardboiled/blob/master/clues/analytics/chartbeat.js)
 
+### Chartbeat [https://chartbeat.com](https://chartbeat.com)
+
+Real-time data for front-line doers
+
+Tagged with: none | Test types: global, global | Found at: [analytics/kissmetrics.js](https://github.com/jsoma/hardboiled/blob/master/clues/analytics/kissmetrics.js)
+
 ### CloudFlare [http://www.cloudflare.com](http://www.cloudflare.com)
 
 Tagged with: none | Test types: header | Found at: [caching-hosting-cdn/cloudflare.js](https://github.com/jsoma/hardboiled/blob/master/clues/caching-hosting-cdn/cloudflare.js)
@@ -52,13 +58,27 @@ Tagged with: none | Test types: header | Found at: [caching-hosting-cdn/cloudfla
 
 Tagged with: none | Test types: selector | Found at: [maps-viz-data/cloudmade.js](https://github.com/jsoma/hardboiled/blob/master/clues/maps-viz-data/cloudmade.js)
 
+### Cufon [https://github.com/sorccu/cufon](https://github.com/sorccu/cufon)
+
+Tagged with: none | Test types: global | Found at: [fonts/cufon.js](https://github.com/jsoma/hardboiled/blob/master/clues/fonts/cufon.js)
+
 ### D3 [http://d3js.org](http://d3js.org)
 
 Tagged with: none | Test types: global | Found at: [maps-viz-data/d3.js](https://github.com/jsoma/hardboiled/blob/master/clues/maps-viz-data/d3.js)
 
+### Dojo [http://dojotoolkit.org](http://dojotoolkit.org)
+
+Tagged with: none | Test types: javascript | Found at: [frameworks/dojo.js](https://github.com/jsoma/hardboiled/blob/master/clues/frameworks/dojo.js)
+
 ### EdgeCast [http://www.edgecast.com/](http://www.edgecast.com/)
 
 Tagged with: none | Test types: header | Found at: [caching-hosting-cdn/edgecast.js](https://github.com/jsoma/hardboiled/blob/master/clues/caching-hosting-cdn/edgecast.js)
+
+### Ember.js [http://www.emberjs.com](http://www.emberjs.com)
+
+A framework for creating ambitious web application
+
+Tagged with: emberjs | Test types: javascript | Found at: [frameworks/ember.js](https://github.com/jsoma/hardboiled/blob/master/clues/frameworks/ember.js)
 
 ### englewood.js [https://github.com/tmcw/englewood.js](https://github.com/tmcw/englewood.js)
 
@@ -92,7 +112,7 @@ Tagged with: none | Test types: global | Found at: [maps-viz-data/google-maps.js
 
 ### Google Web Fonts [http://www.google.com/fonts](http://www.google.com/fonts)
 
-Tagged with: none | Test types: selector | Found at: [uncategorized/google-web-fonts.js](https://github.com/jsoma/hardboiled/blob/master/clues/uncategorized/google-web-fonts.js)
+Tagged with: none | Test types: selector | Found at: [fonts/google-web-fonts.js](https://github.com/jsoma/hardboiled/blob/master/clues/fonts/google-web-fonts.js)
 
 ### Handlebars.js [http://handlebarsjs.com](http://handlebarsjs.com)
 
@@ -126,7 +146,7 @@ Tagged with: jquery | Test types: jquery | Found at: [jquery/isotope.js](https:/
 
 jQuery is a fast, small, and feature-rich JavaScript library.
 
-Tagged with: jquery | Test types: javascript | Found at: [jquery/jquery.js](https://github.com/jsoma/hardboiled/blob/master/clues/jquery/jquery.js)
+Tagged with: jquery | Test types: javascript | Found at: [frameworks/jquery.js](https://github.com/jsoma/hardboiled/blob/master/clues/frameworks/jquery.js)
 
 ### jQuery Address [http://www.asual.com/jquery/address/](http://www.asual.com/jquery/address/)
 
@@ -180,6 +200,12 @@ HTML5/Flash video player
 
 Tagged with: none | Test types: global | Found at: [uncategorized/jwplayer.js](https://github.com/jsoma/hardboiled/blob/master/clues/uncategorized/jwplayer.js)
 
+### Knockout.js [http://knockoutjs.com](http://knockoutjs.com)
+
+Knockout is a JavaScript library that helps you to create rich, responsive display and editor user interfaces with a clean underlying data model.
+
+Tagged with: none | Test types: javascript | Found at: [frameworks/knockout.js](https://github.com/jsoma/hardboiled/blob/master/clues/frameworks/knockout.js)
+
 ### Leaflet markercluster [https://github.com/Leaflet/Leaflet.markercluster](https://github.com/Leaflet/Leaflet.markercluster)
 
 Provides Beautiful Animated Marker Clustering functionality for Leaflet, a JS library for interactive maps.
@@ -214,7 +240,7 @@ Tagged with: none | Test types: global | Found at: [uncategorized/masonry.js](ht
 
 Meteor is a node.js application framework
 
-Tagged with: none | Test types: global | Found at: [framework/meteor.js](https://github.com/jsoma/hardboiled/blob/master/clues/framework/meteor.js)
+Tagged with: none | Test types: global | Found at: [frameworks/meteor.js](https://github.com/jsoma/hardboiled/blob/master/clues/frameworks/meteor.js)
 
 ### miniMonth [https://github.com/tbarmann/jquery.minimonth.js](https://github.com/tbarmann/jquery.minimonth.js)
 
@@ -238,6 +264,12 @@ Tagged with: none | Test types: global | Found at: [uncategorized/modernizr.js](
 
 Tagged with: captcha | Test types: filename | Found at: [uncategorized/mollom.js](https://github.com/jsoma/hardboiled/blob/master/clues/uncategorized/mollom.js)
 
+### MooTools [http://www.mootools.com](http://www.mootools.com)
+
+MooTools is a compact, modular, Object-Oriented JavaScript framework designed for the intermediate to advanced JavaScript developer.
+
+Tagged with: mootools | Test types: javascript | Found at: [frameworks/mootools.js](https://github.com/jsoma/hardboiled/blob/master/clues/frameworks/mootools.js)
+
 ### Mustache.js [https://github.com/janl/mustache.js/](https://github.com/janl/mustache.js/)
 
 Minimal templating with {{mustaches}} in JavaScript
@@ -258,7 +290,7 @@ Tagged with: none | Test types: global | Found at: [uncategorized/popcorn.js](ht
 
 ### Prototype [http://www.prototypejs.org](http://www.prototypejs.org)
 
-Tagged with: none | Test types: global | Found at: [uncategorized/prototype.js](https://github.com/jsoma/hardboiled/blob/master/clues/uncategorized/prototype.js)
+Tagged with: none | Test types: global | Found at: [frameworks/prototype.js](https://github.com/jsoma/hardboiled/blob/master/clues/frameworks/prototype.js)
 
 ### queue.js [https://github.com/mbostock/queue](https://github.com/mbostock/queue)
 
@@ -302,6 +334,12 @@ Tagged with: none | Test types: meta | Found at: [uncategorized/repost-us.js](ht
 
 Tagged with: none | Test types: global | Found at: [uncategorized/requirejs.js](https://github.com/jsoma/hardboiled/blob/master/clues/uncategorized/requirejs.js)
 
+### requireJS [http://requirejs.org](http://requirejs.org)
+
+RequireJS is a JavaScript file and module loader.
+
+Tagged with: none | Test types: javascript | Found at: [frameworks/require.js](https://github.com/jsoma/hardboiled/blob/master/clues/frameworks/require.js)
+
 ### Responsive IFrames [http://npr.github.io/responsiveiframe/](http://npr.github.io/responsiveiframe/)
 
 Tagged with: none | Test types: jquery | Found at: [jquery/responsive-iframes.js](https://github.com/jsoma/hardboiled/blob/master/clues/jquery/responsive-iframes.js)
@@ -325,6 +363,12 @@ Tagged with: none | Test types: jquery | Found at: [jquery/select2.js](https://g
 ### Sheetsee.js [https://github.com/jlord/sheetsee.js](https://github.com/jlord/sheetsee.js)
 
 Tagged with: none | Test types: global | Found at: [maps-viz-data/sheetsee.js](https://github.com/jsoma/hardboiled/blob/master/clues/maps-viz-data/sheetsee.js)
+
+### sIFR [http://en.wikipedia.org/wiki/Scalable_Inman_Flash_Replacement](http://en.wikipedia.org/wiki/Scalable_Inman_Flash_Replacement)
+
+sIFR (Scalable Inman Flash Replacement) was the Flash-based precursor to the modern age of webfonts
+
+Tagged with: none | Test types: global | Found at: [fonts/sIFR.js](https://github.com/jsoma/hardboiled/blob/master/clues/fonts/sIFR.js)
 
 ### Simple Map D3 [http://code.minnpost.com/simple-map-d3/](http://code.minnpost.com/simple-map-d3/)
 
@@ -388,7 +432,7 @@ Tagged with: none | Test types: header | Found at: [cms/tumblr.js](https://githu
 
 Prior to Bootstrap 3, you could enable responsive design by adding in an additional stylesheet.
 
-Tagged with: none | Test types: filename | Found at: [framework/bootstrap-responsive.js](https://github.com/jsoma/hardboiled/blob/master/clues/framework/bootstrap-responsive.js)
+Tagged with: none | Test types: filename | Found at: [frameworks/bootstrap-responsive.js](https://github.com/jsoma/hardboiled/blob/master/clues/frameworks/bootstrap-responsive.js)
 
 ### Twitter card
 
@@ -443,3 +487,15 @@ Tagged with: none | Test types: text | Found at: [wordpress/wp-super-cache.js](h
 ### YouTube (embedded) [http://www.youtube.com/](http://www.youtube.com/)
 
 Tagged with: video | Test types: selector | Found at: [uncategorized/youtube.js](https://github.com/jsoma/hardboiled/blob/master/clues/uncategorized/youtube.js)
+
+### YUI [http://yuilibrary.com](http://yuilibrary.com)
+
+YUI is a free, open source JavaScript and CSS library for building richly interactive web applications.
+
+Tagged with: yui | Test types: javascript | Found at: [frameworks/YUI.js](https://github.com/jsoma/hardboiled/blob/master/clues/frameworks/YUI.js)
+
+### Zepto.js [http://zeptojs.com](http://zeptojs.com)
+
+Zepto is a minimalist JavaScript library for modern browsers with a largely jQuery-compatible API.
+
+Tagged with: none | Test types: global | Found at: [frameworks/zepto.js](https://github.com/jsoma/hardboiled/blob/master/clues/frameworks/zepto.js)
